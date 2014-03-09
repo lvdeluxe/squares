@@ -1,0 +1,69 @@
+#!/bin/sh
+
+################################################################################
+##
+##  ADOBE CONFIDENTIAL
+##
+##  Copyright 2007-2012 Adobe Systems Incorporated
+##  All Rights Reserved.
+##
+##  NOTICE: All information contained herein is, and remains
+##  the property of Adobe Systems Incorporated and its suppliers,
+##  if any. The intellectual and technical concepts contained
+##  herein are proprietary to Adobe Systems Incorporated and its
+##  suppliers and are protected by trade secret or copyright law.
+##  Dissemination of this information or reproduction of this material
+##  is strictly forbidden unless prior written permission is obtained
+##  from Adobe Systems Incorporated.
+##
+################################################################################
+
+#
+# fdb shell script to launch fdb.jar on OSX, Unix, or Cygwin.
+# In Windows Command Prompt, use fdb.bat instead.
+#
+
+if [ "x${FALCON_HOME}" = "x" ]
+then
+    SCRIPT_HOME=`dirname $0`
+    FALCON_HOME=${SCRIPT_HOME}/..
+else
+    echo Using Falcon codebase: $FALCON_HOME
+fi
+
+if [ "x${FLEX_HOME}" = "x" ]
+then
+    SCRIPT_HOME=`dirname $0`
+    FLEX_HOME=${SCRIPT_HOME}/..
+else
+    echo Using Flex SDK: $FLEX_HOME
+fi
+
+case `uname` in
+		CYGWIN*)
+			OS="Windows"
+		;;
+		*)
+			OS=Unix
+esac
+
+D32=''
+
+if [ $OS = "Windows" ]; then
+
+	FALCON_HOME=`cygpath -m $FALCON_HOME`
+	FLEX_HOME=`cygpath -m $FLEX_HOME`
+
+elif [ $OS = "Unix" ]; then
+
+	check64="`java -version 2>&1 | grep -i 64-Bit`"
+	isOSX="`uname | grep -i Darwin`"
+	
+	if [ "$isOSX" != "" -a "$HOSTTYPE" = "x86_64" -a "$check64" != "" ]; then
+		D32='-d32'
+	fi
+fi
+
+VMARGS="-Xmx384m -Dsun.io.useCanonCaches=false"
+
+java $VMARGS $D32 $SETUP_SH_VMARGS -Dapplication.home="$FALCON_HOME" -jar "${FALCON_HOME}/lib/legacy/fdb.jar" "$@"

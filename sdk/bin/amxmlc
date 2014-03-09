@@ -1,0 +1,28 @@
+#!/bin/sh
+
+################################################################################
+##
+##  ADOBE CONFIDENTIAL
+##
+##  Copyright 2007-2012 Adobe Systems Incorporated
+##  All Rights Reserved.
+##
+##  NOTICE: All information contained herein is, and remains
+##  the property of Adobe Systems Incorporated and its suppliers,
+##  if any. The intellectual and technical concepts contained
+##  herein are proprietary to Adobe Systems Incorporated and its
+##  suppliers and are protected by trade secret or copyright law.
+##  Dissemination of this information or reproduction of this material
+##  is strictly forbidden unless prior written permission is obtained
+##  from Adobe Systems Incorporated.
+##
+################################################################################
+
+#
+# amxmlc shell script to launch mxmlc-cli.jar on OSX, Unix, or Cygwin to
+# compile SWF applications for Adobe AIR.
+# In Windows Command Prompt, use amxmlc.bat instead.
+#
+
+mxmlc=`dirname "$0"`/mxmlc
+"$mxmlc" +configname=air "$@"

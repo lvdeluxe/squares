@@ -1,0 +1,51 @@
+#!/bin/sh
+
+################################################################################
+##
+##  ADOBE CONFIDENTIAL
+##
+##  Copyright 2007-2012 Adobe Systems Incorporated
+##  All Rights Reserved.
+##
+##  NOTICE: All information contained herein is, and remains
+##  the property of Adobe Systems Incorporated and its suppliers,
+##  if any. The intellectual and technical concepts contained
+##  herein are proprietary to Adobe Systems Incorporated and its
+##  suppliers and are protected by trade secret or copyright law.
+##  Dissemination of this information or reproduction of this material
+##  is strictly forbidden unless prior written permission is obtained
+##  from Adobe Systems Incorporated.
+##
+################################################################################
+
+#
+# swfdump shell script to launch swfdump-cli.jar on OSX, Unix, or Cygwin.
+# In Windows Command Prompt, use swfdump.bat instead.
+#
+
+if [ "x${AIR_SDK_HOME}" = "x" ]
+then
+    SCRIPT_HOME=`dirname $0`
+    AIR_SDK_HOME=${SCRIPT_HOME}/..
+else
+    echo Using AIR SDK: $AIR_SDK_HOME
+fi
+
+case `uname` in
+        CYGWIN*)
+            OS="Windows"
+        ;;
+        *)
+            OS=Unix
+esac
+
+
+if [ $OS = "Windows" ]; then
+
+    AIR_SDK_HOME=`cygpath -m $AIR_SDK_HOME`
+
+fi
+
+VMARGS="-Xmx512m -Dsun.io.useCanonCaches=false "
+
+java $VMARGS $SETUP_SH_VMARGS -jar "${AIR_SDK_HOME}/lib/swfdump-cli.jar" "$@"
