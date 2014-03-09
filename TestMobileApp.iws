@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iml" afterPath="$PROJECT_DIR$/TestMobileApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.ipr" afterPath="$PROJECT_DIR$/TestMobileApp.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iws" afterPath="$PROJECT_DIR$/TestMobileApp.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
     </list>
     <ignored path="TestMobileApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,10 +88,10 @@
     <splitter split-orientation="horizontal" split-proportion="0.77113235">
       <split-first>
         <leaf>
-          <file leaf-file-name="Main.as" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Main.as">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="80" column="25" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.35820895">
+                <state line="70" column="22" selection-start="1895" selection-end="1895" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -104,15 +101,6 @@
             <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
               <provider selected="true" editor-type-id="text-editor">
                 <state line="24" column="33" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Texture.as" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/starling/textures/Texture.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="250" column="0" selection-start="12778" selection-end="12778" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -136,10 +124,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="SquaresManager.as" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="SquaresManager.as" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="40" column="37" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
+                <state line="68" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.90140843">
                   <folding>
                     <element signature="e#180#206#0" expanded="true" />
                   </folding>
@@ -172,7 +160,7 @@
           <file leaf-file-name="EllipseData.as" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.35250738">
+                <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.5346756">
                   <folding />
                 </state>
               </provider>
@@ -537,22 +525,22 @@
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22580644" sideWeight="0.6066946" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22580644" sideWeight="0.67782426" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39218327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32345015" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32217574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -662,12 +650,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/starling/core/Starling.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="20" selection-start="9539" selection-end="9539" vertical-scroll-proportion="0.0" />
+        <state line="184" column="20" selection-start="9539" selection-end="9539" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.35250738">
+        <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.5346756">
           <folding />
         </state>
       </provider>
@@ -698,13 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="33" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/starling/utils/VertexData.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="105" column="45" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.0">
@@ -712,19 +695,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
+    <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="37" selection-start="1166" selection-end="1166" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#180#206#0" expanded="true" />
-          </folding>
+        <state line="70" column="22" selection-start="1895" selection-end="1895" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="25" selection-start="2138" selection-end="2138" vertical-scroll-proportion="0.35820895">
+        <state line="24" column="33" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.90140843">
+          <folding>
+            <element signature="e#180#206#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

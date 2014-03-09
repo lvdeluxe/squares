@@ -10,6 +10,7 @@ import deluxe.GameSignals;
 import deluxe.gesture.DrawTarget;
 import deluxe.gesture.data.EllipseData;
 
+import flash.display.BitmapData;
 import flash.display.Stage;
 import flash.events.TimerEvent;
 import flash.geom.Point;
@@ -17,8 +18,15 @@ import flash.geom.Rectangle;
 import flash.system.System;
 import flash.utils.Timer;
 
+import starling.core.RenderSupport;
+import starling.core.Starling;
+import starling.display.Image;
+import starling.display.QuadBatch;
+import starling.textures.Texture;
+
 public class SquaresManager {
 
+	public static const TEXTURE:Texture = Texture.fromBitmapData(new BitmapData(4,4,true,0x40ffffff));
 	private var _timer:Timer;
 	private var _caughtMovingObjects:Vector.<MovingSquare> = new Vector.<MovingSquare>();
 	private var _movingObjects:Vector.<MovingSquare> = new Vector.<MovingSquare>();
@@ -36,18 +44,27 @@ public class SquaresManager {
 
 	private var _ellipses:Vector.<EllipseData> = new Vector.<EllipseData>();
 
-	private var _renderer:ISquareRenderer;
+	private var _quadBatch:QuadBatch;
+	private var _img:Image =  new Image(SquaresManager.TEXTURE)
+
+//	private var _renderer:ISquareRenderer;
 
 	public function SquaresManager(pStage:Stage) {
 		GameSignals.ELLIPSE_DRAW.add(onEllipseDrawn);
 		GameSignals.ELLIPSE_EXPLODE.add(onEllipseExplode);
 		GameSignals.ELLIPSE_CANCEL.add(onEllipseCancel);
 
-		_timer = new Timer(100,0);
+		_quadBatch = new QuadBatch();
+		_quadBatch.touchable = false;
+		Starling.current.stage.addChild(_quadBatch);
+//		_renderSupport = new RenderSupport();
+//		_renderSupport.
+
+		_timer = new Timer(1000,0);
 		_timer.addEventListener(TimerEvent.TIMER, onTimer);
 		_timer.start();
 		onTimer(null);
-		_renderer = new BitmapSquaresRenderer(pStage);
+//		_renderer = new BitmapSquaresRenderer(pStage);
 	}
 
 	private function onEllipseExplode(drawTarget:DrawTarget):void{
@@ -63,6 +80,7 @@ public class SquaresManager {
 		for(i = toDestroy.length - 1 ; i >= 0; i--){
 			var mo:MovingSquare = _movingObjects.splice(toDestroy[i],1)[0];
 			_currentPixels -= (mo.size * mo.size);
+//			_quadBatch.addImage(mo);
 			mo = null;
 		}
 		System.gc();
@@ -105,6 +123,8 @@ public class SquaresManager {
 	private function createMovingObject(clone:MovingSquare = null):void {
 		var newOne:MovingSquare = new MovingSquare(clone);
 		_movingObjects.push(newOne);
+//		_quadBatch.addImage(newOne);
+//		Starling.current.stage.addChild(newOne);
 		_currentPixels += newOne.size *  newOne.size;
 		if(_movingObjects.length > 500){
 			_toDie++;
@@ -163,17 +183,18 @@ public class SquaresManager {
 	}
 
 	public function update():void{
-		_renderer.clear();
+//		_renderer.clear();
+		_quadBatch.reset();
 
 		var toDie:int = _toDie;
 		if(toDie < 0){
 			toDie = 0;
 		}
-		_renderer.prepare();
+//		_renderer.prepare();
 
 		var len:uint = _movingObjects.length - 1;
 		for(var i:int = len ; i >= 0; i--){
-			var mo:MovingSquare = _movingObjects[i] as MovingSquare;
+			var mo:MovingSquare = _movingObjects[int(i)] as MovingSquare;
 			if(i < toDie){
 				mo.mustDie = true;
 			}
@@ -183,7 +204,7 @@ public class SquaresManager {
 					if(intersects == 0){
 						mo.update();
 						if(mo.hitWall != ""){
-							_currentPixels += ((mo.size * mo.size) - ((mo.size - 2) * (mo.size - 2)));
+//							_currentPixels += ((mo.size * mo.size) - ((mo.size - 2) * (mo.size - 2)));
 							createMovingObject(mo);
 						}
 					}else{
@@ -193,15 +214,22 @@ public class SquaresManager {
 				}else{
 					mo.moveToCenter();
 				}
-				_renderer.draw(mo.fillRectangle);
+				_img.x = mo.x;
+				_img.y = mo.y;
+				_img.width = _img.height = mo.size;
+				_quadBatch.addImage(_img);
+//				_renderer.draw(mo.fillRectangle);
 			}else{
 				_movingObjects.splice(i,1);
 				_currentPixels -= (mo.size * mo.size);
+//				Starling.current.stage.removeChild(mo);
 				mo = null;
 				_toDie--;
 			}
 		}
-		_renderer.release();
+//		_renderer.release();
+//		if(_quadBatch)
+//			_quadBatch.render(_renderSupport, 1);
 	}
 }
 }
