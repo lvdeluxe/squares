@@ -29,25 +29,25 @@ public class Main extends Sprite{
 	private const UPDATE_INTERVAL:Number = 0.5;
 	private var _gestureController:GestureController;
 	private var _squaresManager:SquaresManager;
-	private var _lastTime:Number;
-	private var mFrameCount:int = 0;
-	private var mTotalTime:Number = 0;
-	private var mFps:Number = 0;
-
-	private var fpsTf:TextField;
+//	private var _lastTime:Number;
+//	private var mFrameCount:int = 0;
+//	private var mTotalTime:Number = 0;
+//	private var mFps:Number = 0;
+//
+//	private var fpsTf:TextField;
 
 
 	public function Main() {
 		stage.scaleMode = StageScaleMode.NO_SCALE;
 		stage.align = StageAlign.TOP_LEFT;
 		stage.addEventListener(flash.events.Event.DEACTIVATE, deactivate);
-		fpsTf = new TextField();
-		fpsTf.textColor = 0xffffff;
-		fpsTf.width = 50;
-		fpsTf.height = 18;
-		fpsTf.y = 50
-		addChild(fpsTf);
-		_lastTime = getTimer();
+//		fpsTf = new TextField();
+//		fpsTf.textColor = 0xffffff;
+//		fpsTf.width = 50;
+//		fpsTf.height = 18;
+//		fpsTf.y = 50
+//		addChild(fpsTf);
+//		_lastTime = getTimer();
 
 
 
@@ -64,27 +64,27 @@ public class Main extends Sprite{
 
 	}
 
-	private function fps():void
-	{
-		var time:Number = getTimer();
-		mTotalTime += (time - _lastTime) / 1000;
-		mFrameCount++;
-
-		if (mTotalTime > UPDATE_INTERVAL)
-		{
-//			update();
-			mFps = mTotalTime > 0 ? mFrameCount / mTotalTime : 0;
-
-			fpsTf.text = (mFps.toFixed(mFps < 100 ? 1 : 0));
-			mFrameCount = mTotalTime = 0;
-		}
-		_lastTime = time;
-	}
+//	private function fps():void
+//	{
+//		var time:Number = getTimer();
+//		mTotalTime += (time - _lastTime) / 1000;
+//		mFrameCount++;
+//
+//		if (mTotalTime > UPDATE_INTERVAL)
+//		{
+////			update();
+//			mFps = mTotalTime > 0 ? mFrameCount / mTotalTime : 0;
+//
+//			fpsTf.text = (mFps.toFixed(mFps < 100 ? 1 : 0));
+//			mFrameCount = mTotalTime = 0;
+//		}
+//		_lastTime = time;
+//	}
 
 
 
 	private function render(event:flash.events.Event):void {
-		fps();
+//		fps();
 		_squaresManager.update();
 		_starling.nextFrame();
 

@@ -4,12 +4,13 @@
     <configurations>
       <configuration name="TestMobileApp" target-platform="Mobile" pure-as="true" main-class="Main" output-file="TestMobileApp.swf" output-folder="$MODULE_DIR$/out/production/TestMobileApp">
         <dependencies>
-          <sdk name="AIR4.0" />
+          <sdk name="sdk (1)" />
         </dependencies>
         <compiler-options>
           <map>
-            <entry key="compiler.debug.swf" value="false" />
+            <entry key="compiler.debug.swf" value="true" />
           </map>
+          <option name="additionalOptions" value="-advanced-telemetry=true" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android package-file-name="TestMobileApp" />
@@ -17,7 +18,7 @@
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/Desktop/iphone_dev.p12" provisioning-profile-path="$USER_HOME$/Downloads/TestProvProfile.mobileprovision" />
+          <AirSigningOptions keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/TestProvProfile.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -28,7 +29,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="AIR4.0" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="sdk (1)" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
