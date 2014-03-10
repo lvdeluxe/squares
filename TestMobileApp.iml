@@ -8,7 +8,7 @@
         </dependencies>
         <compiler-options>
           <map>
-            <entry key="compiler.debug.swf" value="true" />
+            <entry key="compiler.debug.swf" value="false" />
           </map>
           <option name="additionalOptions" value="-advanced-telemetry=true" />
         </compiler-options>

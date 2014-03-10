@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package {
-import deluxe.StarlingController;
+//import deluxe.StarlingController;
 import deluxe.squares.SquaresManager;
 
 import flash.display.Sprite;
@@ -16,16 +16,16 @@ import flash.events.Event;
 
 import deluxe.gesture.GestureController;
 
-import flash.text.TextField;
-import flash.utils.getTimer;
-
-import starling.core.Starling;
+//import flash.text.TextField;
+//import flash.utils.getTimer;
+//
+//import starling.core.Starling;
 import starling.events.Event;
 
 [SWF(width='1136', height='640', backgroundColor='#000000', frameRate='60')]
 public class Main extends Sprite{
 
-	private var _starling:Starling;
+//	private var _starling:Starling;
 	private const UPDATE_INTERVAL:Number = 0.5;
 	private var _gestureController:GestureController;
 	private var _squaresManager:SquaresManager;
@@ -48,19 +48,21 @@ public class Main extends Sprite{
 //		fpsTf.y = 50
 //		addChild(fpsTf);
 //		_lastTime = getTimer();
-
-
-
-		_starling = new Starling(StarlingController, stage);
-		_starling.addEventListener(starling.events.Event.CONTEXT3D_CREATE, onContext);
-		_starling.showStats = true;
-	}
-
-	private function onContext(event:starling.events.Event):void {
-		_starling.start();
 		_gestureController = new GestureController(stage);
 		_squaresManager = new SquaresManager(stage);
 		addEventListener(flash.events.Event.ENTER_FRAME, render);
+
+
+//		_starling = new Starling(StarlingController, stage);
+//		_starling.addEventListener(starling.events.Event.CONTEXT3D_CREATE, onContext);
+//		_starling.showStats = true;
+	}
+
+	private function onContext(event:starling.events.Event):void {
+//		_starling.start();
+//		_gestureController = new GestureController(stage);
+//		_squaresManager = new SquaresManager(stage);
+//		addEventListener(flash.events.Event.ENTER_FRAME, render);
 
 	}
 
@@ -86,7 +88,7 @@ public class Main extends Sprite{
 	private function render(event:flash.events.Event):void {
 //		fps();
 		_squaresManager.update();
-		_starling.nextFrame();
+//		_starling.nextFrame();
 
 
 //		trace(_currentPixels, "/", _totalPixels, _currentPixels/_totalPixels);

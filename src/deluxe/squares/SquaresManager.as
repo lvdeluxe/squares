@@ -15,10 +15,15 @@ import flash.events.TimerEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.system.System;
+import flash.text.Font;
+import flash.text.TextField;
+import flash.text.TextFormat;
 import flash.utils.Timer;
 
 public class SquaresManager {
 
+	[Embed(source="/assets/Kubus-Bold.ttf", fontName="kubus", fontFamily="kubus", embedAsCFF= "false")]
+	private var FontClass:Class;
 	private var _timer:Timer;
 	private var _caughtMovingObjects:Vector.<MovingSquare> = new Vector.<MovingSquare>();
 	private var _movingObjects:Vector.<MovingSquare> = new Vector.<MovingSquare>();
@@ -38,12 +43,34 @@ public class SquaresManager {
 
 	private var _renderer:ISquareRenderer;
 
+	private var _tf:TextField;
+
+	private var _tFormat:TextFormat;
+
 	public function SquaresManager(pStage:Stage) {
 		GameSignals.ELLIPSE_DRAW.add(onEllipseDrawn);
 		GameSignals.ELLIPSE_EXPLODE.add(onEllipseExplode);
 		GameSignals.ELLIPSE_CANCEL.add(onEllipseCancel);
 
-		_timer = new Timer(100,0);
+		var fonts:Array = Font.enumerateFonts(false);
+
+		for(var i:int = 0; i < fonts.length; i++) {
+			trace(fonts[i].fontName);
+		}
+
+		_tf = new TextField();
+		_tf.width = 600;
+		_tf.height= 70;
+		_tf.textColor = 0xffffff;
+		_tf.embedFonts = true;
+		_tf.text = "0%";
+		_tFormat = new TextFormat();
+		_tFormat.font = "kubus";
+		_tFormat.size = 64;
+		_tf.setTextFormat(_tFormat);
+		pStage.addChild(_tf);
+
+		_timer = new Timer(500,0);
 		_timer.addEventListener(TimerEvent.TIMER, onTimer);
 		_timer.start();
 		onTimer(null);
@@ -174,9 +201,9 @@ public class SquaresManager {
 		var len:uint = _movingObjects.length - 1;
 		for(var i:int = len ; i >= 0; i--){
 			var mo:MovingSquare = _movingObjects[i] as MovingSquare;
-			if(i < toDie){
-				mo.mustDie = true;
-			}
+//			if(i < toDie){
+//				mo.mustDie = true;
+//			}
 			if(!mo.isDead){
 				if(mo.caughtBy == null){
 					var intersects:uint = checkEllipseIntersectionsWithPoint(mo.center);//mo.size > 4 ? checkEllipseIntersectionsWithPoint(mo.center) : checkEllipseIntersectionsWithPoint(mo.center);
@@ -194,14 +221,21 @@ public class SquaresManager {
 					mo.moveToCenter();
 				}
 				_renderer.draw(mo.fillRectangle);
-			}else{
-				_movingObjects.splice(i,1);
-				_currentPixels -= (mo.size * mo.size);
-				mo = null;
-				_toDie--;
 			}
+//			else{
+//				_movingObjects.splice(i,1);
+//				_currentPixels -= (mo.size * mo.size);
+//				mo = null;
+//				_toDie--;
+//			}
 		}
 		_renderer.release();
+		var prct:Number = uint(_currentPixels / _totalPixels * 100)
+		_tf.text = prct.toString() + "%";
+//		_tFormat = new TextFormat();
+//		_tFormat.font = "kubus";
+//		_tFormat.size = 64;
+		_tf.setTextFormat(_tFormat);
 	}
 }
 }

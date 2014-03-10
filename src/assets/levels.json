@@ -1,0 +1,11 @@
+{
+	"levels":
+				[
+						{
+							"id":0,
+							"speed":5,
+							"start":10,
+							"interval":1000
+						}
+				]
+}
