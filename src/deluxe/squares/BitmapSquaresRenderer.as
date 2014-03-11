@@ -83,9 +83,11 @@ public class BitmapSquaresRenderer implements ISquareRenderer{
 		_targetBitmapData.unlock();
 	}
 	public function draw(rect:Rectangle):void{
-		_targetBitmapData.fillRect(rect, 0x40ffffff);
+		_targetBitmapData.fillRect(rect, 0xffffff);
 //		_point.x = rect.x;
 //		_point.y = rect.y;
+//		_bitmapDataDictionary[rect.width].x = rect.x;
+//		_bitmapDataDictionary[rect.width].y = rect.y;
 //		_targetBitmapData.copyPixels(_bitmapDataDictionary[rect.width],_canvasRect, _point, null,null, true);
 	}
 }
