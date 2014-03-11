@@ -20,9 +20,14 @@ import flash.utils.Timer;
 
 import starling.core.RenderSupport;
 import starling.core.Starling;
+import starling.display.BlendMode;
 import starling.display.Image;
 import starling.display.QuadBatch;
+import starling.text.TextField;
 import starling.textures.Texture;
+import starling.textures.TextureSmoothing;
+import starling.utils.HAlign;
+import starling.utils.VAlign;
 
 public class SquaresManager {
 
@@ -42,10 +47,12 @@ public class SquaresManager {
 	private var _totalPixels:uint = 1136 * 640;
 	private var _currentPixels:uint = 0;
 
+	private var _tf:TextField;
+
 	private var _ellipses:Vector.<EllipseData> = new Vector.<EllipseData>();
 
 	private var _quadBatch:QuadBatch;
-	private var _img:Image =  new Image(SquaresManager.TEXTURE)
+	private var _img:Image =  new Image(SquaresManager.TEXTURE);
 
 //	private var _renderer:ISquareRenderer;
 
@@ -54,13 +61,24 @@ public class SquaresManager {
 		GameSignals.ELLIPSE_EXPLODE.add(onEllipseExplode);
 		GameSignals.ELLIPSE_CANCEL.add(onEllipseCancel);
 
+		_img.touchable = false;
+		_img.smoothing = TextureSmoothing.NONE;
+		_img.blendMode = BlendMode.NONE;
+
 		_quadBatch = new QuadBatch();
 		_quadBatch.touchable = false;
+		_quadBatch.blendMode = BlendMode.NONE;
 		Starling.current.stage.addChild(_quadBatch);
 //		_renderSupport = new RenderSupport();
 //		_renderSupport.
+		_tf = new TextField(1136, 200, "abc","Kubus", 36, 0xffffff);
+		_tf.vAlign = VAlign.TOP;
+		_tf.hAlign = HAlign.RIGHT;
+//		_tf.y = 50;
+		Starling.current.stage.addChild(_tf);
 
-		_timer = new Timer(1000,0);
+
+		_timer = new Timer(200,0);
 		_timer.addEventListener(TimerEvent.TIMER, onTimer);
 		_timer.start();
 		onTimer(null);
@@ -185,26 +203,25 @@ public class SquaresManager {
 	public function update():void{
 //		_renderer.clear();
 		_quadBatch.reset();
-
-		var toDie:int = _toDie;
-		if(toDie < 0){
-			toDie = 0;
-		}
+//		var toDie:int = _toDie;
+//		if(toDie < 0){
+//			toDie = 0;
+//		}
 //		_renderer.prepare();
 
 		var len:uint = _movingObjects.length - 1;
 		for(var i:int = len ; i >= 0; i--){
 			var mo:MovingSquare = _movingObjects[int(i)] as MovingSquare;
-			if(i < toDie){
-				mo.mustDie = true;
-			}
+//			if(i < toDie){
+//				mo.mustDie = true;
+//			}
 			if(!mo.isDead){
 				if(mo.caughtBy == null){
 					var intersects:uint = checkEllipseIntersectionsWithPoint(mo.center);//mo.size > 4 ? checkEllipseIntersectionsWithPoint(mo.center) : checkEllipseIntersectionsWithPoint(mo.center);
 					if(intersects == 0){
 						mo.update();
 						if(mo.hitWall != ""){
-//							_currentPixels += ((mo.size * mo.size) - ((mo.size - 2) * (mo.size - 2)));
+							_currentPixels += ((mo.size * mo.size) - ((mo.size - 2) * (mo.size - 2)));
 							createMovingObject(mo);
 						}
 					}else{
@@ -219,14 +236,16 @@ public class SquaresManager {
 				_img.width = _img.height = mo.size;
 				_quadBatch.addImage(_img);
 //				_renderer.draw(mo.fillRectangle);
-			}else{
-				_movingObjects.splice(i,1);
-				_currentPixels -= (mo.size * mo.size);
-//				Starling.current.stage.removeChild(mo);
-				mo = null;
-				_toDie--;
 			}
+//			else{
+//				_movingObjects.splice(i,1);
+//				_currentPixels -= (mo.size * mo.size);
+////				Starling.current.stage.removeChild(mo);
+//				mo = null;
+//				_toDie--;
+//			}
 		}
+		_tf.text = (uint(_currentPixels / _totalPixels * 100)).toString() + "%";
 //		_renderer.release();
 //		if(_quadBatch)
 //			_quadBatch.render(_renderSupport, 1);

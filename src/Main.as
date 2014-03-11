@@ -25,6 +25,9 @@ import starling.events.Event;
 [SWF(width='1136', height='640', backgroundColor='#000000', frameRate='60')]
 public class Main extends Sprite{
 
+	[Embed(source="/assets/Kubus-Bold.ttf", embedAsCFF="false", fontFamily="Kubus")]
+	private static const Kubus:Class;
+
 	private var _starling:Starling;
 	private const UPDATE_INTERVAL:Number = 0.5;
 	private var _gestureController:GestureController;

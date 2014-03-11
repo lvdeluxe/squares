@@ -8,9 +8,9 @@
         </dependencies>
         <compiler-options>
           <map>
-            <entry key="compiler.debug.swf" value="true" />
+            <entry key="compiler.debug.swf" value="false" />
           </map>
-          <option name="additionalOptions" value="-advanced-telemetry=true" />
+          <option name="additionalOptions" value="-advanced-telemetry=false -optimize=true" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android package-file-name="TestMobileApp" />
