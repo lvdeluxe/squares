@@ -22,7 +22,7 @@ public class MovingSquare{
 	public static const COLORS:Array = [0xffcc0000, 0xff00cc00, 0xff0000cc];
 
 	public var rotation:Number;
-	private var _speed:Number = 5;
+	private var _speed:Number = 4;
 	private var _startPlace:String;
 	public var dx:Number;
 	public var dy:Number;

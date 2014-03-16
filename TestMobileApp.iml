@@ -4,6 +4,11 @@
     <configurations>
       <configuration name="TestMobileApp" target-platform="Mobile" pure-as="true" main-class="Main" output-file="TestMobileApp.swf" output-folder="$MODULE_DIR$/out/production/TestMobileApp">
         <dependencies>
+          <entries>
+            <entry library-name="lib" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
           <sdk name="sdk (1)" />
         </dependencies>
         <compiler-options>
@@ -31,6 +36,7 @@
     </content>
     <orderEntry type="jdk" jdkName="sdk (1)" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
   </component>
 </module>
 

@@ -6,11 +6,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iml" afterPath="$PROJECT_DIR$/TestMobileApp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.ipr" afterPath="$PROJECT_DIR$/TestMobileApp.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iws" afterPath="$PROJECT_DIR$/TestMobileApp.iws" />
     </list>
     <ignored path="TestMobileApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.js2" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394496595083" ignored="false" />
+    <file path="/fragment.js2" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394759198197" ignored="false" />
     <file path="/TestMobileApp.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394159293706" ignored="false" />
     <file path="/TestMobileApp-app.xml" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394327819235" ignored="false" />
     <file path="/StarlingController.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1393299310030" ignored="false" />
@@ -22,14 +23,18 @@
     <file path="/GameSignals.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394155598734" ignored="false" />
     <file path="/EllipseData.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394158839592" ignored="false" />
     <file path="/DrawTarget.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394158038020" ignored="false" />
-    <file path="/a.dummy" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394155718166" ignored="false" />
-    <file path="/SquaresManager.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394496698561" ignored="false" />
-    <file path="/Main.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394493519051" ignored="false" />
+    <file path="/a.dummy" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394757289990" ignored="false" />
+    <file path="/SquaresManager.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394762332680" ignored="false" />
+    <file path="/Main.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394677455454" ignored="false" />
     <file path="/MovingSquare.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394402080117" ignored="false" />
     <file path="/ISquareRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321909851" ignored="false" />
     <file path="/BitmapSquaresRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321976356" ignored="false" />
     <file path="/StarlingSquaresRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321959421" ignored="false" />
-    <file path="/Dummy.txt" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394497853811" ignored="false" />
+    <file path="/Dummy.txt" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394761679904" ignored="false" />
+    <file path="/GTextureText.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394675667874" ignored="false" />
+    <file path="/GTextureAtlasFactory.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394588374781" ignored="false" />
+    <file path="/GTextureTextAlignType.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394674333084" ignored="false" />
+    <file path="/Genome2D.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394677465046" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -81,6 +85,7 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -89,79 +94,98 @@
     <favorites_list name="TestMobileApp" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.77113235">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Main.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="35" column="21" selection-start="984" selection-end="985" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MovingSquare.as" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="24" column="33" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BitmapSquaresRenderer.as" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="59" column="44" selection-start="2659" selection-end="2659" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="StarlingSquaresRenderer.as" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="100" column="30" selection-start="5600" selection-end="5600" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="SquaresManager.as" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="92" column="63" selection-start="2937" selection-end="2937" vertical-scroll-proportion="0.5882353">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="QuadBatch.as" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="282" column="9" selection-start="12209" selection-end="12209" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="EllipseData.as" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.3514706">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="113" column="5" selection-start="3428" selection-end="3428" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestMobileApp-app.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestMobileApp-app.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="38" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Genome2D.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/genome2d/Genome2D.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="254" column="5" selection-start="7135" selection-end="7135" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SquaresManager.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="30" selection-start="4130" selection-end="4130" vertical-scroll-proportion="0.47640792">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GNodeFactory.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/genome2d/node/factory/GNodeFactory.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="50" selection-start="405" selection-end="428" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GTextureAtlasFactory.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="83" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GCurve.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/genome2d/geom/GCurve.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="48" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GTextureText.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureText.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="198" column="64" selection-start="5206" selection-end="5206" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GSimpleShape.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GSimpleShape.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovingSquare.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="197" column="55" selection-start="4165" selection-end="4165" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -182,11 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/MovingObject.as" />
-        <option value="$PROJECT_DIR$/src/GestureController.as" />
-        <option value="$PROJECT_DIR$/src/EllipseData.as" />
-        <option value="$PROJECT_DIR$/src/TestMobileApp.as" />
-        <option value="$PROJECT_DIR$/src/DrawTarget.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gestures/data/EllipseData.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gestures/DrawTarget.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as" />
@@ -195,6 +214,11 @@
         <option value="$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as" />
         <option value="$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as" />
         <option value="$PROJECT_DIR$/TestMobileApp-app.xml" />
+        <option value="$PROJECT_DIR$/src/com/genome2d/node/GNode.as" />
+        <option value="$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as" />
+        <option value="$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureTextAlignType.as" />
+        <option value="$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureText.as" />
+        <option value="$PROJECT_DIR$/src/com/genome2d/Genome2D.as" />
         <option value="$PROJECT_DIR$/src/Main.as" />
         <option value="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
         <option value="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
@@ -252,7 +276,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -261,8 +284,105 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestMobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestMobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestMobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deluxe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestMobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="deluxe" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestMobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestMobileApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="squares" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -274,7 +394,7 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/mobile/iphone_dev.p12" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -298,12 +418,12 @@
     </servers>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\deluxe\TestMobileApp\src\deluxe\squares" />
-    </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
       <recent name="deluxe.squares" />
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\deluxe\TestMobileApp\src\deluxe\squares" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\deluxe\TestMobileApp\src\deluxe" />
@@ -518,22 +638,22 @@
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32078102" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18387097" sideWeight="0.7810321" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21832883" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29806453" sideWeight="0.5690377" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42991912" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32210243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32823366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -601,7 +721,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -609,96 +729,104 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/flex_sdk_4.6_AIR_3.4/frameworks/libs/air/airglobal.swc!/library.swf">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6064" column="27" selection-start="262489" selection-end="262489" vertical-scroll-proportion="0.9047619" />
+        <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.5382883" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/textures/RenderTexture.as">
+    <entry file="jar://$PROJECT_DIR$/lib/Genome2DContext.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="9" selection-start="8707" selection-end="8707" vertical-scroll-proportion="0.7561437" />
+        <state line="266" column="30" selection-start="10249" selection-end="10259" vertical-scroll-proportion="0.38170347" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureTextAlignType.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="30" selection-start="5600" selection-end="5600" vertical-scroll-proportion="0.0">
+        <state line="6" column="34" selection-start="87" selection-end="108" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureFactory.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="5" selection-start="694" selection-end="694" vertical-scroll-proportion="0.037558686" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="282" column="9" selection-start="12209" selection-end="12209" vertical-scroll-proportion="0.036697246">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/events/EnterFrameEvent.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTexturedQuad.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="59" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0" />
+        <state line="22" column="33" selection-start="602" selection-end="602" vertical-scroll-proportion="0.49172577" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TestMobileApp-app.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="39" selection-start="4893" selection-end="4893" vertical-scroll-proportion="0.0" />
+        <state line="17" column="38" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/core/StatsDisplay.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/Genome2D.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="45" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.0" />
+        <state line="254" column="5" selection-start="7135" selection-end="7135" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/core/Starling.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/node/factory/GNodeFactory.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="20" selection-start="9539" selection-end="9539" vertical-scroll-proportion="0.0" />
+        <state line="18" column="50" selection-start="405" selection-end="428" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/ISquareRenderer.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="373" selection-end="373" vertical-scroll-proportion="0.21492538" />
+        <state line="83" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/textures/Texture.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/geom/GCurve.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="250" column="0" selection-start="12778" selection-end="12778" vertical-scroll-proportion="0.0" />
+        <state line="10" column="48" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as">
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GSimpleShape.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="44" selection-start="2659" selection-end="2659" vertical-scroll-proportion="0.0">
+        <state line="19" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureText.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="64" selection-start="5206" selection-end="5206" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="21" selection-start="984" selection-end="985" vertical-scroll-proportion="0.0">
+        <state line="113" column="5" selection-start="3428" selection-end="3428" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="33" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.3514706">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/utils/VertexData.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="17" selection-start="6549" selection-end="6549" vertical-scroll-proportion="0.7699805" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="9" selection-start="12209" selection-end="12209" vertical-scroll-proportion="0.0">
+        <state line="197" column="55" selection-start="4165" selection-end="4165" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="63" selection-start="2937" selection-end="2937" vertical-scroll-proportion="0.5882353">
+        <state line="126" column="30" selection-start="4130" selection-end="4130" vertical-scroll-proportion="0.47640792">
           <folding />
         </state>
       </provider>
@@ -767,6 +895,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>lib</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
