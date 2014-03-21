@@ -28,7 +28,7 @@ package starling.core
     {
         private const UPDATE_INTERVAL:Number = 0.5;
         
-        private var mBackground:Quad;
+//        private var mBackground:Quad;
         private var mTextField:TextField;
         
         private var mFrameCount:int = 0;
@@ -41,13 +41,13 @@ package starling.core
         /** Creates a new Statistics Box. */
         public function StatsDisplay()
         {
-            mBackground = new Quad(50, 25, 0x0);
-            mTextField = new TextField(48, 25, "", BitmapFont.MINI, BitmapFont.NATIVE_SIZE, 0xffffff);
+//            mBackground = new Quad(50, 25, 0x0);
+            mTextField = new TextField(300, 200, "", "Verdana", 48, 0xffffff);
             mTextField.x = 2;
             mTextField.hAlign = HAlign.LEFT;
             mTextField.vAlign = VAlign.TOP;
             
-            addChild(mBackground);
+//            addChild(mBackground);
             addChild(mTextField);
             
             blendMode = BlendMode.NONE;

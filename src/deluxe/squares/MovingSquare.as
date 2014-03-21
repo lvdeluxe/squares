@@ -19,11 +19,9 @@ public class MovingSquare{
 	public static const UP:String = "up";
 	public static const DOWN:String = "down";
 
-	public static const COLORS:Array = [0xffcc0000, 0xff00cc00, 0xff0000cc];
-
 	public var rotation:Number;
-	private var _speed:Number = 5;
-	private var _startPlace:String;
+	private var _speed:Number = 3;
+	public var startPlace:String;
 	public var dx:Number;
 	public var dy:Number;
 
@@ -45,39 +43,30 @@ public class MovingSquare{
 
 	private var _maxSize:uint = 40;
 
-	public function MovingSquare(clone:MovingSquare) {
+	public function MovingSquare() {
 		fillRectangle = new Rectangle();
 		nextFillRectangle = new Rectangle();
-		if(clone){
-			color = clone.color;
-			size = clone.size;
-			x = clone.x;
-			y = clone.y;
-			_startPlace = clone.hitWall;
-			setRotation();
+
+		color = Math.random() * 0xffffffff;//0x40ffffff;//COLORS[Math.floor(Math.random() * COLORS.length)];
+
+		var location:Number = Math.random();
+
+		if(location < 0.25){
+			startPlace = LEFT;
+		}else if(location < 0.5){
+			startPlace = RIGHT;
+		}else if(location < 0.75){
+			startPlace = UP;
 		}else{
-			color = Math.random() * 0xffffffff;//0x40ffffff;//COLORS[Math.floor(Math.random() * COLORS.length)];
-
-			var location:Number = Math.random();
-
-			if(location < 0.25){
-				_startPlace = LEFT;
-			}else if(location < 0.5){
-				_startPlace = RIGHT;
-			}else if(location < 0.75){
-				_startPlace = UP;
-			}else{
-				_startPlace = DOWN;
-			}
-			setPosition();
-			setRotation();
-
+			startPlace = DOWN;
 		}
-		setMovingValues(rotation);
+		setPosition();
+		setRotation();
+		setMovingValues();
 	}
 
 	private function setPosition():void{
-		switch(_startPlace){
+		switch(startPlace){
 			case LEFT:
 				x = (size / 2);
 				y = (uint)(10 + Math.random() * 620) - (size / 2);
@@ -97,8 +86,8 @@ public class MovingSquare{
 		}
 	}
 
-	private function setRotation():void{
-		switch(_startPlace){
+	public function setRotation():void{
+		switch(startPlace){
 			case LEFT:
 				rotation = 45 + (Math.random() * 90);
 				if(rotation > 70 && rotation < 110){
@@ -146,17 +135,16 @@ public class MovingSquare{
 		}
 	}
 
-	public function setMovingValues(rot:Number):void{
-		if(rot > 360){
-			rot -= 360;
+	public function setMovingValues():void{
+		if(rotation > 360){
+			rotation -= 360;
 		}
-		rot -= 90;
-		rot *= Math.PI / 180;
-		var cos:Number = Math.cos(rot);
-		var sin:Number = Math.sin(rot);
+		rotation -= 90;
+		rotation *= Math.PI / 180;
+		var cos:Number = Math.cos(rotation);
+		var sin:Number = Math.sin(rotation);
 		dx = cos * _speed;
 		dy = sin * _speed;
-		_speed *= Math.random() * 2;
 	}
 
 	public function moveToCenter():void{

@@ -29,17 +29,17 @@ public class StarlingController extends Sprite{
 
 	public function StarlingController() {
 //		addChild(new Image(Texture.fromBitmapData(new BitmapData(1136,640,false,0xff000000))))        ;
-//		var psConfig:XML = XML(new Config());
-//		var psTexture:Texture = Texture.fromBitmap(new Particle());
-//		ps = new PDParticleSystem(psConfig, psTexture);
-//		Starling.juggler.add(ps);
-//		addChild(ps);
-//		ps.emitterX = 560;
-//		ps.emitterY = 320;
-//		ps.start();
+		var psConfig:XML = XML(new Config());
+		var psTexture:Texture = Texture.fromBitmap(new Particle());
+		ps = new PDParticleSystem(psConfig, psTexture);
+		Starling.juggler.add(ps);
+		addChild(ps);
+		ps.emitterX = 560;
+		ps.emitterY = 320;
+		ps.start();
 //		addEventListener(TouchEvent.TOUCH, onTouch)
-//		Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
-//		Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+		Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+		Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 	}
 
 	private function onTouch(event:TouchEvent):void

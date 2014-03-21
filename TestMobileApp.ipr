@@ -25,12 +25,14 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="HaxeProjectSettings" defines="" />
   <component name="ProjectDictionaryState">
     <dictionary name="lvdeluxe" />
   </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TestMobileApp.iml" filepath="$PROJECT_DIR$/TestMobileApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../TestOpenFL/TestOpenFL.iml" filepath="$PROJECT_DIR$/../TestOpenFL/TestOpenFL.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true">

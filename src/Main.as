@@ -7,14 +7,21 @@
  */
 package {
 //import deluxe.StarlingController;
+import deluxe.StarlingController;
+import deluxe.b2dLite;
 import deluxe.squares.SquaresManager;
 
+import flash.display.BitmapData;
 import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
 
 import deluxe.gesture.GestureController;
+
+import flash.geom.Rectangle;
+
+import starling.core.Starling;
 
 //import flash.text.TextField;
 //import flash.utils.getTimer;
@@ -25,7 +32,7 @@ import starling.events.Event;
 [SWF(width='1136', height='640', backgroundColor='#000000', frameRate='60')]
 public class Main extends Sprite{
 
-//	private var _starling:Starling;
+	private var _starling:Starling;
 	private const UPDATE_INTERVAL:Number = 0.5;
 	private var _gestureController:GestureController;
 	private var _squaresManager:SquaresManager;
@@ -35,6 +42,8 @@ public class Main extends Sprite{
 //	private var mFps:Number = 0;
 //
 //	private var fpsTf:TextField;
+
+	private var _renderer:b2dLite;
 
 
 	public function Main() {
@@ -48,50 +57,38 @@ public class Main extends Sprite{
 //		fpsTf.y = 50
 //		addChild(fpsTf);
 //		_lastTime = getTimer();
-		_gestureController = new GestureController(stage);
-		_squaresManager = new SquaresManager(stage);
-		addEventListener(flash.events.Event.ENTER_FRAME, render);
-
-
-//		_starling = new Starling(StarlingController, stage);
-//		_starling.addEventListener(starling.events.Event.CONTEXT3D_CREATE, onContext);
-//		_starling.showStats = true;
-	}
-
-	private function onContext(event:starling.events.Event):void {
-//		_starling.start();
 //		_gestureController = new GestureController(stage);
 //		_squaresManager = new SquaresManager(stage);
 //		addEventListener(flash.events.Event.ENTER_FRAME, render);
 
+//
+
+		_starling = new Starling(StarlingController, stage);
+		_starling.antiAliasing = 0;
+		_starling.shareContext = true;
+		_starling.addEventListener(starling.events.Event.CONTEXT3D_CREATE, onContext);
+		_starling.showStats = true;
 	}
 
-//	private function fps():void
-//	{
-//		var time:Number = getTimer();
-//		mTotalTime += (time - _lastTime) / 1000;
-//		mFrameCount++;
-//
-//		if (mTotalTime > UPDATE_INTERVAL)
-//		{
-////			update();
-//			mFps = mTotalTime > 0 ? mFrameCount / mTotalTime : 0;
-//
-//			fpsTf.text = (mFps.toFixed(mFps < 100 ? 1 : 0));
-//			mFrameCount = mTotalTime = 0;
-//		}
-//		_lastTime = time;
-//	}
+	private function onContext(event:starling.events.Event):void {
 
+		_renderer = new b2dLite(0);
+		_starling.start();
+		_renderer.initializeFromContext(_starling.context,1136,640);
 
+		_renderer.createTexture(new BitmapData(4,4,true, 0x40ffffff));
+		_gestureController = new GestureController(stage);
+		_squaresManager = new SquaresManager(_renderer);
+		addEventListener(flash.events.Event.ENTER_FRAME, render);
+	}
 
 	private function render(event:flash.events.Event):void {
-//		fps();
+		_renderer.clear();
+		_renderer.reset();
 		_squaresManager.update();
-//		_starling.nextFrame();
-
-
-//		trace(_currentPixels, "/", _totalPixels, _currentPixels/_totalPixels);
+		_renderer.flush();
+		_starling.nextFrame();
+		_renderer.present();
 	}
 
 	private function deactivate(e:flash.events.Event):void

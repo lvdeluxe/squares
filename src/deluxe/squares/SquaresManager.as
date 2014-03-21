@@ -7,18 +7,21 @@
  */
 package deluxe.squares {
 import deluxe.GameSignals;
+import deluxe.b2dLite;
 import deluxe.gesture.DrawTarget;
 import deluxe.gesture.data.EllipseData;
 
-import flash.display.Stage;
 import flash.events.TimerEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
 import flash.system.System;
-import flash.text.Font;
-import flash.text.TextField;
-import flash.text.TextFormat;
 import flash.utils.Timer;
+
+import starling.core.Starling;
+import starling.text.BitmapFont;
+import starling.text.TextField;
+import starling.utils.HAlign;
+import starling.utils.VAlign;
 
 public class SquaresManager {
 
@@ -41,40 +44,48 @@ public class SquaresManager {
 
 	private var _ellipses:Vector.<EllipseData> = new Vector.<EllipseData>();
 
-	private var _renderer:ISquareRenderer;
+//	private var _renderer:ISquareRenderer;
+
+	private var _maxSquares:uint = 5000;
 
 	private var _tf:TextField;
 
-	private var _tFormat:TextFormat;
+//	private var _tFormat:TextFormat;
 
-	public function SquaresManager(pStage:Stage) {
+	private var _renderer:b2dLite;
+
+	private var _pool:Vector.<MovingSquare> = new Vector.<MovingSquare>();
+	private var _numSquares:uint = 0;
+
+	public function SquaresManager(renderer:b2dLite) {
 		GameSignals.ELLIPSE_DRAW.add(onEllipseDrawn);
 		GameSignals.ELLIPSE_EXPLODE.add(onEllipseExplode);
 		GameSignals.ELLIPSE_CANCEL.add(onEllipseCancel);
 
-		var fonts:Array = Font.enumerateFonts(false);
+		_renderer = renderer;
 
-		for(var i:int = 0; i < fonts.length; i++) {
-			trace(fonts[i].fontName);
-		}
-
-		_tf = new TextField();
-		_tf.width = 600;
-		_tf.height= 70;
-		_tf.textColor = 0xffffff;
-		_tf.embedFonts = true;
-		_tf.text = "0%";
-		_tFormat = new TextFormat();
-		_tFormat.font = "kubus";
-		_tFormat.size = 64;
-		_tf.setTextFormat(_tFormat);
-		pStage.addChild(_tf);
+		createSquares();
 
 		_timer = new Timer(500,0);
 		_timer.addEventListener(TimerEvent.TIMER, onTimer);
 		_timer.start();
 		onTimer(null);
-		_renderer = new BitmapSquaresRenderer(pStage);
+//		_renderer = new BitmapSquaresRenderer(pStage);
+
+		_tf = new TextField(800, 100, BitmapFont.MINI, "Verdana", 36, 0xffffff);
+		_tf.x = 336;
+//		_tf.y = 10;
+		_tf.vAlign = VAlign.TOP;
+		_tf.hAlign = HAlign.RIGHT;
+//		_tf.scaleX = 10;
+//		_tf.scaleY = 10;
+		Starling.current.stage.addChild(_tf);
+	}
+
+	private function createSquares():void {
+		for(var i:uint = 0 ; i < _maxSquares ; i++){
+			_pool.push(new MovingSquare());
+		}
 	}
 
 	private function onEllipseExplode(drawTarget:DrawTarget):void{
@@ -130,14 +141,25 @@ public class SquaresManager {
 	}
 
 	private function createMovingObject(clone:MovingSquare = null):void {
-		var newOne:MovingSquare = new MovingSquare(clone);
-		_movingObjects.push(newOne);
-		_currentPixels += newOne.size *  newOne.size;
-		if(_movingObjects.length > 500){
-			_toDie++;
-		}else{
-			_toDie = 0;
+		if(_numSquares == _maxSquares - 1)
+			return;
+		_numSquares++;
+		if(clone){
+			_pool[_numSquares].size = clone.size;
+			_pool[_numSquares].x = clone.x;
+			_pool[_numSquares].y = clone.y;
+			_pool[_numSquares].startPlace = clone.hitWall;
+			_pool[_numSquares].setRotation();
+			_pool[_numSquares].setMovingValues();
 		}
+//		var newOne:MovingSquare = new MovingSquare();
+//		_movingObjects.push(newOne);
+		_currentPixels += _pool[_numSquares].size *  _pool[_numSquares].size;
+//		if(_movingObjects.length > 500){
+//			_toDie++;
+//		}else{
+//			_toDie = 0;
+//		}
 	}
 
 	private function checkEllipseIntersectionsWithPoint(center:Point):int{
@@ -190,38 +212,40 @@ public class SquaresManager {
 	}
 
 	public function update():void{
-		_renderer.clear();
+//		_renderer.clear();
 
 		var toDie:int = _toDie;
 		if(toDie < 0){
 			toDie = 0;
 		}
-		_renderer.prepare();
+//		_renderer.prepare();
 
-		var len:uint = _movingObjects.length - 1;
-		for(var i:int = len ; i >= 0; i--){
-			var mo:MovingSquare = _movingObjects[i] as MovingSquare;
+//		var len:uint = _movingObjects.length - 1;
+//		trace(len)
+		for(var i:int = 0 ; i < _numSquares; i++){
+			var mo:MovingSquare = _pool[i] as MovingSquare;
 //			if(i < toDie){
 //				mo.mustDie = true;
 //			}
-			if(!mo.isDead){
-				if(mo.caughtBy == null){
-					var intersects:uint = checkEllipseIntersectionsWithPoint(mo.center);//mo.size > 4 ? checkEllipseIntersectionsWithPoint(mo.center) : checkEllipseIntersectionsWithPoint(mo.center);
-					if(intersects == 0){
-						mo.update();
-						if(mo.hitWall != ""){
-							_currentPixels += ((mo.size * mo.size) - ((mo.size - 2) * (mo.size - 2)));
-							createMovingObject(mo);
-						}
-					}else{
-						mo.reverse();
-						mo.update();
+//			if(!mo.isDead){
+			if(mo.caughtBy == null){
+				var intersects:uint = checkEllipseIntersectionsWithPoint(mo.center);//mo.size > 4 ? checkEllipseIntersectionsWithPoint(mo.center) : checkEllipseIntersectionsWithPoint(mo.center);
+				if(intersects == 0){
+					mo.update();
+					if(mo.hitWall != ""){
+						_currentPixels += ((mo.size * mo.size) - ((mo.size - 2) * (mo.size - 2)));
+						createMovingObject(mo);
 					}
 				}else{
-					mo.moveToCenter();
+					mo.reverse();
+					mo.update();
 				}
-				_renderer.draw(mo.fillRectangle);
+			}else{
+				mo.moveToCenter();
 			}
+			_renderer.renderQuad(mo.size, mo.size, mo.x, mo.y);
+//			_renderer.draw(mo.fillRectangle);
+//			}
 //			else{
 //				_movingObjects.splice(i,1);
 //				_currentPixels -= (mo.size * mo.size);
@@ -229,13 +253,13 @@ public class SquaresManager {
 //				_toDie--;
 //			}
 		}
-		_renderer.release();
+//		_renderer.release();
 		var prct:Number = uint(_currentPixels / _totalPixels * 100)
-		_tf.text = prct.toString() + "%";
+		_tf.text = prct.toString() + "% / " + _numSquares.toString() + " quads";
 //		_tFormat = new TextFormat();
 //		_tFormat.font = "kubus";
 //		_tFormat.size = 64;
-		_tf.setTextFormat(_tFormat);
+//		_tf.setTextFormat(_tFormat);
 	}
 }
 }

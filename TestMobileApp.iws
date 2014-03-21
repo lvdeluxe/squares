@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/b2dLite.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/StarlingController.as" afterPath="$PROJECT_DIR$/src/deluxe/StarlingController.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/starling/core/StatsDisplay.as" afterPath="$PROJECT_DIR$/src/starling/core/StatsDisplay.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.ipr" afterPath="$PROJECT_DIR$/TestMobileApp.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iws" afterPath="$PROJECT_DIR$/TestMobileApp.iws" />
     </list>
     <ignored path="TestMobileApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.js2" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394498151944" ignored="false" />
+    <file path="/fragment.js2" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395365399407" ignored="false" />
     <file path="/TestMobileApp.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394159293706" ignored="false" />
     <file path="/TestMobileApp-app.xml" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394327819235" ignored="false" />
     <file path="/StarlingController.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1393299310030" ignored="false" />
@@ -19,15 +26,17 @@
     <file path="/GameSignals.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394155598734" ignored="false" />
     <file path="/EllipseData.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394158839592" ignored="false" />
     <file path="/DrawTarget.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394158038020" ignored="false" />
-    <file path="/a.dummy" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394155718166" ignored="false" />
-    <file path="/SquaresManager.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394415051236" ignored="false" />
-    <file path="/Main.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394328611002" ignored="false" />
-    <file path="/MovingSquare.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394402080117" ignored="false" />
+    <file path="/a.dummy" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395183220721" ignored="false" />
+    <file path="/SquaresManager.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395365244883" ignored="false" />
+    <file path="/Main.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395277337553" ignored="false" />
+    <file path="/MovingSquare.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395183320520" ignored="false" />
     <file path="/ISquareRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321909851" ignored="false" />
     <file path="/BitmapSquaresRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394499117035" ignored="false" />
     <file path="/StarlingSquaresRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321959421" ignored="false" />
-    <file path="/Dummy.txt" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394497913645" ignored="false" />
+    <file path="/Dummy.txt" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395365893525" ignored="false" />
     <file path="/levels.json" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394414029901" ignored="false" />
+    <file path="/b2dLite.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395276561817" ignored="false" />
+    <file path="/StatsDisplay.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1395277424428" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,25 +100,16 @@
       <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="38" selection-start="2231" selection-end="2238" vertical-scroll-proportion="0.0">
+            <state line="60" column="52" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="levels.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/levels.json">
+      <file leaf-file-name="StarlingController.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/StarlingController.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="43" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovingSquare.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="29" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
+            <state line="44" column="51" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,19 +124,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BitmapSquaresRenderer.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as">
+      <file leaf-file-name="Starling.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/starling/core/Starling.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="5" selection-start="3649" selection-end="3649" vertical-scroll-proportion="0.73142856">
+            <state line="260" column="33" selection-start="13637" selection-end="13637" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StarlingSquaresRenderer.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as">
+      <file leaf-file-name="DisplayObjectContainer.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/starling/display/DisplayObjectContainer.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="30" selection-start="5600" selection-end="5600" vertical-scroll-proportion="0.0">
+            <state line="350" column="41" selection-start="14390" selection-end="14390" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatsDisplay.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/starling/core/StatsDisplay.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="43" selection-start="1779" selection-end="1779" vertical-scroll-proportion="0.023809524">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sprite.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/starling/display/Sprite.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="189" column="33" selection-start="8384" selection-end="8384" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MovingSquare.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="45" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -145,25 +172,16 @@
       <file leaf-file-name="SquaresManager.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="28" selection-start="6933" selection-end="6933" vertical-scroll-proportion="0.0">
+            <state line="75" column="20" selection-start="2172" selection-end="2172" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VertexData.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/starling/utils/VertexData.as">
+      <file leaf-file-name="b2dLite.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/b2dLite.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="45" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuadBatch.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="457" column="0" selection-start="19637" selection-end="19637" vertical-scroll-proportion="0.0">
+            <state line="231" column="0" selection-start="8020" selection-end="8020" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -190,11 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/GestureController.as" />
-        <option value="$PROJECT_DIR$/src/EllipseData.as" />
-        <option value="$PROJECT_DIR$/src/TestMobileApp.as" />
-        <option value="$PROJECT_DIR$/src/DrawTarget.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/gestures/data/EllipseData.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gestures/DrawTarget.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as" />
@@ -202,10 +215,15 @@
         <option value="$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as" />
         <option value="$PROJECT_DIR$/TestMobileApp-app.xml" />
         <option value="$PROJECT_DIR$/src/assets/levels.json" />
+        <option value="$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as" />
+        <option value="$PROJECT_DIR$/src/starling/display/DisplayObjectContainer.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/b2dLite.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/StarlingController.as" />
+        <option value="$PROJECT_DIR$/src/starling/core/Starling.as" />
         <option value="$PROJECT_DIR$/src/Main.as" />
         <option value="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as" />
+        <option value="$PROJECT_DIR$/src/starling/core/StatsDisplay.as" />
       </list>
     </option>
   </component>
@@ -260,6 +278,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -269,51 +288,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -324,6 +300,7 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="jdk.selected.HAXE_MODULE" value="haXe NA" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/mobile/iphone_dev.p12" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -348,12 +325,13 @@
     </servers>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\deluxe\TestMobileApp\src\deluxe\squares" />
-    </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="deluxe" />
       <recent name="deluxe.squares" />
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\deluxe\TestMobileApp\src\deluxe\squares" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\deluxe\TestMobileApp\src\deluxe" />
@@ -568,22 +546,22 @@
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23548387" sideWeight="0.7977685" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20223153" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26903227" sideWeight="0.67782426" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45746166" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32217574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32210243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -659,34 +637,43 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/starling/textures/RenderTexture.as">
+    <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="9" selection-start="8707" selection-end="8707" vertical-scroll-proportion="0.7561437" />
+        <state line="457" column="0" selection-start="19637" selection-end="19637" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/events/EnterFrameEvent.as">
+    <entry file="file://$PROJECT_DIR$/src/assets/levels.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="59" selection-start="1377" selection-end="1377" vertical-scroll-proportion="0.0" />
+        <state line="7" column="43" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestMobileApp-app.xml">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/ISquareRenderer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="39" selection-start="4893" selection-end="4893" vertical-scroll-proportion="0.0" />
+        <state line="18" column="47" selection-start="444" selection-end="444" vertical-scroll-proportion="0.23809524" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/core/StatsDisplay.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="45" selection-start="2751" selection-end="2751" vertical-scroll-proportion="0.0" />
+        <state line="34" column="35" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/core/Starling.as">
+    <entry file="file://$PROJECT_DIR$/src/starling/display/DisplayObject.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="20" selection-start="9539" selection-end="9539" vertical-scroll-proportion="0.0" />
+        <state line="325" column="24" selection-start="14486" selection-end="14486" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
+    <entry file="file://$PROJECT_DIR$/src/starling/display/DisplayObjectContainer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.35250738" />
+        <state line="350" column="41" selection-start="14390" selection-end="14390" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/starling/display/Sprite.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="189" column="33" selection-start="8384" selection-end="8384" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/starling/textures/Texture.as">
@@ -696,65 +683,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as">
+    <entry file="file://$PROJECT_DIR$/src/starling/text/TextField.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="30" selection-start="5600" selection-end="5600" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="153" column="53" selection-start="6802" selection-end="6803" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/utils/VertexData.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/StarlingController.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="45" selection-start="5334" selection-end="5334" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="457" column="0" selection-start="19637" selection-end="19637" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/levels.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="43" selection-start="101" selection-end="101" vertical-scroll-proportion="0.0">
+        <state line="44" column="51" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="29" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0">
+        <state line="19" column="45" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/starling/core/Starling.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="260" column="33" selection-start="13637" selection-end="13637" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="38" selection-start="2231" selection-end="2238" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/ISquareRenderer.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="47" selection-start="444" selection-end="444" vertical-scroll-proportion="0.23809524">
+        <state line="60" column="52" selection-start="1637" selection-end="1637" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="28" selection-start="6933" selection-end="6933" vertical-scroll-proportion="0.0">
+        <state line="75" column="20" selection-start="2172" selection-end="2172" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as">
+    <entry file="file://$PROJECT_DIR$/src/starling/core/StatsDisplay.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="5" selection-start="3649" selection-end="3649" vertical-scroll-proportion="0.73142856">
+        <state line="47" column="43" selection-start="1779" selection-end="1779" vertical-scroll-proportion="0.023809524">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/b2dLite.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="231" column="0" selection-start="8020" selection-end="8020" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
