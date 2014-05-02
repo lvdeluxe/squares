@@ -8,6 +8,9 @@
             <entry library-name="lib" library-level="project">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="0958483d-d290-442a-97c8-32b7186e0ce2">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="sdk (1)" />
         </dependencies>
@@ -15,15 +18,48 @@
           <map>
             <entry key="compiler.debug.swf" value="false" />
           </map>
-          <option name="additionalOptions" value="-advanced-telemetry=false -optimize=true" />
+          <option name="additionalOptions" value="-define=DEPLOY::DEVICE,true -define=DEPLOY::EMUL,false" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android package-file-name="TestMobileApp" />
         <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/TestMobileApp-app.xml" package-file-name="TestMobileApp">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_29.png" path-in-package="Icon_29.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_57.png" path-in-package="Icon_57.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_72.png" path-in-package="Icon_72.png" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/TestProvProfile.mobileprovision" />
+          <AirSigningOptions adt-options="-useLegacyAOT no" keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/TestIad.mobileprovision" />
+        </packaging-ios>
+      </configuration>
+      <configuration name="TestMobileAppEmul" target-platform="Mobile" pure-as="true" main-class="Main" output-file="TestMobileAppEmul.swf" output-folder="$MODULE_DIR$/out/production/TestMobileApp">
+        <dependencies>
+          <entries>
+            <entry library-name="lib" library-level="project">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="1a13cc1f-2c68-41a4-b359-079cada724e6">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="sdk (1)" />
+        </dependencies>
+        <compiler-options>
+          <map>
+            <entry key="compiler.debug.swf" value="true" />
+          </map>
+          <option name="additionalOptions" value="-define=DEPLOY::DEVICE,false -define=DEPLOY::EMUL,true" />
+        </compiler-options>
+        <packaging-air-desktop />
+        <packaging-android package-file-name="TestMobileAppEmul" />
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/TestMobileAppEmul-app.xml" package-file-name="TestMobileAppEmul">
+          <files-to-package>
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_29.png" path-in-package="Icon_29.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_57.png" path-in-package="Icon_57.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_72.png" path-in-package="Icon_72.png" />
+          </files-to-package>
+          <AirSigningOptions adt-options="-useLegacyAOT no" keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/TestIad.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -37,6 +73,26 @@
     <orderEntry type="jdk" jdkName="sdk (1)" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="0958483d-d290-442a-97c8-32b7186e0ce2" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/ane/RevMob.ane!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="1a13cc1f-2c68-41a4-b359-079cada724e6" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/ane/RevMob.ane!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
 

@@ -6,18 +6,18 @@
      The last segment of the namespace specifies the version of the AIR runtime required for this application to run.
 
      minimumPatchLevel - The minimum patch level of the AIR runtime required to run the application. Optional. -->
-<application xmlns="http://ns.adobe.com/air/application/3.1">
+<application xmlns="http://ns.adobe.com/air/application/4.0">
   <!-- A universally unique application identifier. Must be unique across all AIR applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-  <id>com.vaillant.TestMobileApp</id>
+  <id>com.vaillant.testiad</id>
   <!-- Used as the filename for the application. Required. -->
-  <filename>TestMobileApp</filename>
+  <filename>Quadrature</filename>
   <!-- The name that is displayed in the AIR application installer. May have multiple values for each language. See samples or xsd schema file. Optional. -->
-  <name>TestMobileApp</name>
+  <name>Quadrature</name>
   <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5. -->
-  <versionNumber>0.0.0</versionNumber>
+  <versionNumber>1.0.0</versionNumber>
   <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
   <!--<versionLabel></versionLabel>-->
   <!-- An application version designator (such as "v1", "2.5", or "Alpha 1"). Required for namespace < 2.5. -->
@@ -29,9 +29,9 @@
   <!-- Publisher ID. Used if you're updating an application created prior to 1.5.3 -->
   <!--<publisherID></publisherID>-->
   <!-- Identifies the ActionScript extensions used by an application. -->
-  <!--<extensions>
-        <extensionID></extensionID>
-    </extensions>-->
+  <extensions>
+    <extensionID>com.revmob.airextension</extensionID>
+  </extensions>
   <!-- Settings for the application's initial window. Required. -->
   <initialWindow>
     <!-- The main SWF or HTML file of the application. Required. -->
@@ -62,10 +62,10 @@
     <!--<minSize></minSize>-->
     <!-- The window's initial maximum size, specified as a width/height pair in pixels, such as "1600 1200". Optional. -->
     <!--<maxSize></maxSize>-->
-    <!-- The aspect ratio of the app ("portrait" or "landscape" or "any"). Optional. Mobile only. Default is the natural orientation of the device -->
-    <!--<aspectRatio></aspectRatio>-->
+    <!--The aspect ratio of the app ("portrait" or "landscape" or "any"). Optional. Mobile only. Default is the natural orientation of the device-->
+    <aspectRatio>landscape</aspectRatio>
     <!-- Whether the app will begin auto-orienting on launch. Optional. Mobile only. Default false -->
-    <autoOrients>true</autoOrients>
+    <autoOrients>false</autoOrients>
     <!-- Whether the app launches in full screen. Optional. Mobile only. Default false -->
     <fullScreen>true</fullScreen>
     <!-- The render mode for the app (either auto, cpu, gpu, or direct). Optional. Default auto -->
@@ -87,6 +87,11 @@
   <!-- The subpath of the Programs menu to use. (Ignored on operating systems without a Programs menu.) Optional. -->
   <!--<programMenuFolder></programMenuFolder>-->
   <!-- The icon the system uses for the application. For at least one resolution, specify the path to a PNG file included in the AIR package. Optional. -->
+  <icon>
+    <image29x29>Icon_29.png</image29x29>
+    <image57x57>Icon_57.png</image57x57>
+    <image72x72>Icon_72.png</image72x72>
+  </icon>
   <!--<icon>
         <image16x16></image16x16>
         <image29x29></image29x29>
@@ -111,6 +116,22 @@
   <!--<customUpdateUI></customUpdateUI>-->
   <!-- Whether the application can be launched when the user clicks a link in a web browser. Optional. Default false. -->
   <!--<allowBrowserInvocation></allowBrowserInvocation>-->
+  <!--<extension xmlns="http://ns.adobe.com/air/extension/3.5">-->
+  <!--<id>so.cuo.platform.iad</id>-->
+  <!--<versionNumber>1</versionNumber>-->
+  <!--<platforms>-->
+  <!--<platform name="iPhone-ARM">-->
+  <!--<applicationDeployment>-->
+  <!--<nativeLibrary>iad1.0.a</nativeLibrary>-->
+  <!--<initializer>iadExtInitializer</initializer>-->
+  <!--<finalizer>iadExtFinalizer</finalizer>-->
+  <!--</applicationDeployment>-->
+  <!--</platform>-->
+  <!--<platform name="default">-->
+  <!--<applicationDeployment/>-->
+  <!--</platform>-->
+  <!--</platforms>-->
+  <!--</extension>-->
   <!-- Listing of file types for which the application can register. Optional. -->
   <!--<fileTypes>-->
   <!-- Defines one file type. Optional. -->
@@ -118,7 +139,7 @@
   <!-- The name that the system displays for the registered file type. Required. -->
   <!--<name></name>-->
   <!-- The extension to register. Required. -->
-  <!--<extension></extension>-->
+  <!--<extensions></extensions>-->
   <!-- The description of the file type. Optional. -->
   <!--<description></description>-->
   <!-- The MIME content type. -->
@@ -145,7 +166,11 @@
             <!--<key>UIStatusBarStyle</key>-->
             <!--<string>UIStatusBarStyleBlackOpaque</string>-->
             <!--<key>UIRequiresPersistentWiFi</key>-->
-            <!--<string>YES</string>-->]]></InfoAdditions>
+            <!--<string>YES</string>-->
+            <key>UIFileSharingEnabled</key>
+            <true/>
+            <key>UIPrerenderedIcon</key>
+        	<true/>]]></InfoAdditions>
     <!-- A list of plist key/value pairs to be added to the application Entitlements.plist -->
     <!--<Entitlements>
             <![CDATA[

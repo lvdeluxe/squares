@@ -12,6 +12,7 @@ import flash.display.Bitmap;
 import flash.display.BitmapData;
 import flash.geom.Matrix;
 import flash.geom.Rectangle;
+import flash.text.AntiAliasType;
 import flash.text.TextField;
 import flash.text.TextFieldAutoSize;
 import flash.text.TextFormat;
@@ -41,25 +42,27 @@ public class GTextureAtlasFactory
 	static public function createFromBitmapDataAndXml(p_id:String, p_bitmapData:BitmapData, p_xml:XML, p_format:String = "bgra"):GTextureAtlas {
         if (!GTextureUtils.isValidTextureSize(p_bitmapData.width) || !GTextureUtils.isValidTextureSize(p_bitmapData.height)) throw new GError("Atlas bitmap needs to have power of 2 size.");
 		var textureAtlas:GTextureAtlas = new GTextureAtlas(g2d_context, p_id, GTextureSourceType.BITMAPDATA, p_bitmapData, p_bitmapData.rect, p_format, null);
-
-        for (var i:int = 0; i<p_xml.children().length(); ++i) {
-            var node:XML = p_xml.children()[i];
+        for (var i:int = 0; i<p_xml.children()[3].children().length(); ++i) {
+            var node:XML = p_xml.children()[3].children()[i];
 
             var region:Rectangle = new Rectangle(int(node.@x), int(node.@y), int(node.@width), int(node.@height));
-
             var pivotX:Number = (node.@frameX == undefined && node.@frameWidth == undefined) ? 0 : Number(node.@frameWidth-region.width)/2 + Number(node.@frameX);
             var pivotY:Number = (node.@frameY == undefined && node.@frameHeight == undefined) ? 0 : Number(node.@frameHeight-region.height)/2 + Number(node.@frameY);
 
-            textureAtlas.addSubTexture(node.@name, region, pivotX, pivotY);
+            textureAtlas.addSubTexture(node.@id, region, pivotX, pivotY);
         }
 
 		textureAtlas.invalidateNativeTexture(false);
 		return textureAtlas;
 	}
 
-    static public function createFromFont(p_id:String, p_format:TextFormat, p_chars:String, p_embedded:Boolean = true, p_horizontalPadding:int = 0, p_verticalPadding:int = 0, p_filters:Array = null, p_forceMod2:Boolean = false):GTextureAtlas {
+    static public function createFromFont(p_id:String, p_format:TextFormat, p_chars:String, p_embedded:Boolean = true, p_horizontalPadding:int = 0, p_verticalPadding:int = 0, p_filters:Array = null, p_forceMod2:Boolean = false, sharpness:Number = 0):GTextureAtlas {
         var text:TextField = new TextField();
+		text.antiAliasType = AntiAliasType.ADVANCED;
+//		text.thickness = -80;
+		text.sharpness = sharpness;
         text.embedFonts = p_embedded;
+		p_format.letterSpacing = 5;
         text.defaultTextFormat = p_format;
         text.multiline = false;
         text.autoSize = TextFieldAutoSize.LEFT;

@@ -75,7 +75,7 @@ public class Genome2D
     // Current frame time
 	private var g2d_currentTime:Number = 0;
     // Render frame id
-	public var g2d_currentFrameId:int = 0;
+	private var g2d_currentFrameId:int = 0;
     public function getCurrentFrameId():int {
         return g2d_currentFrameId;
     }

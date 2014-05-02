@@ -9,32 +9,36 @@ package deluxe.gesture.data {
 import flash.geom.Point;
 import flash.geom.Rectangle;
 
-public class EllipseData {
+public class EllipseData implements IGeometryData{
 
 	private var _position:Point;
-	private var _center:Point;
 	private var _bounds:Rectangle;
+	private var _xRadius:Number;
+	private var _yRadius:Number;
 	private var _squaredXRadius:Number;
 	private var _squaredYRadius:Number;
+	private var _maxRadius:Number;
 
 	public function EllipseData(xRad:Number, yRad:Number, posX:Number, posY:Number) {
-		_position = new Point(posX, posY);
-		_center = new Point(posX + xRad, posY + yRad);
+		_position = new Point(posX + xRad, posY + yRad);
 		_bounds = new Rectangle(posX, posY, xRad * 2, yRad * 2);
+		_xRadius = xRad;
+		_yRadius = yRad;
 		_squaredXRadius = 1 / (xRad * xRad);
 		_squaredYRadius = 1 / (yRad * yRad);
+		_maxRadius = _xRadius > _yRadius ? _xRadius : _yRadius;
 	}
 
 	public function get position():Point {
 		return _position;
 	}
 
-	public function get center():Point {
-		return _center;
-	}
-
 	public function get bounds():Rectangle {
 		return _bounds;
+	}
+
+	public function get maxRadius():Number {
+		return _maxRadius;
 	}
 
 	public function get squaredXRadius():Number {
@@ -43,6 +47,14 @@ public class EllipseData {
 
 	public function get squaredYRadius():Number {
 		return _squaredYRadius;
+	}
+
+	public function get width():Number {
+		return _xRadius * 2;
+	}
+
+	public function get height():Number {
+		return _yRadius * 2;
 	}
 }
 }

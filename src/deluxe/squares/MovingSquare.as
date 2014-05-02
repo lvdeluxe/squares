@@ -6,11 +6,11 @@
  * To change this template use File | Settings | File Templates.
  */
 package deluxe.squares {
+
+import deluxe.GameData;
 import deluxe.gesture.DrawTarget;
 
-import flash.display.Sprite;
 import flash.geom.Point;
-import flash.geom.Rectangle;
 
 public class MovingSquare{
 
@@ -19,86 +19,81 @@ public class MovingSquare{
 	public static const UP:String = "up";
 	public static const DOWN:String = "down";
 
-	public static const COLORS:Array = [0xffcc0000, 0xff00cc00, 0xff0000cc];
-
 	public var rotation:Number;
-	private var _speed:Number = 4;
-	private var _startPlace:String;
+	private var _speed:Number = 0.3;
+	public var startPlace:String;
 	public var dx:Number;
 	public var dy:Number;
 
+	public var indexInCurrent:uint;
+
 	public var hitWall:String = "";
 
-	public var color:uint;
-	public var size:uint = 4;
-	public var mustDie:Boolean = false;
-	public var isDead:Boolean = false;
+	private var _initialSize:uint = 4;
+	public var size:uint;
 
-	public var x:Number;
-	public var y:Number;
-
-	public var fillRectangle:Rectangle;
-	public var nextFillRectangle:Rectangle;
 	public var center:Point = new Point();
 
 	public var caughtBy:DrawTarget;
+	private var _sizeDividedBy2:Number;
 
 	private var _maxSize:uint = 40;
 
-	public function MovingSquare(clone:MovingSquare) {
-		fillRectangle = new Rectangle();
-		nextFillRectangle = new Rectangle();
-		if(clone){
-			color = clone.color;
-			size = clone.size;
-			x = clone.x;
-			y = clone.y;
-			_startPlace = clone.hitWall;
-			setRotation();
-		}else{
-			color = Math.random() * 0xffffffff;//0x40ffffff;//COLORS[Math.floor(Math.random() * COLORS.length)];
+	public var scale:Number;
 
-			var location:Number = Math.random();
 
-			if(location < 0.25){
-				_startPlace = LEFT;
-			}else if(location < 0.5){
-				_startPlace = RIGHT;
-			}else if(location < 0.75){
-				_startPlace = UP;
-			}else{
-				_startPlace = DOWN;
-			}
-			setPosition();
-			setRotation();
-
-		}
-		setMovingValues(rotation);
+	public function MovingSquare() {
+		//init();
 	}
+
+	public function init():void{
+		_speed = Main.CURRENT_LEVEL.squaresSpeed;
+		size = _initialSize;
+		caughtBy = null;
+		_sizeDividedBy2 = size / 2;
+		scale = size * 0.25;
+
+		var location:Number = Math.random();
+
+		if(location < 0.25){
+			startPlace = LEFT;
+		}else if(location < 0.5){
+			startPlace = RIGHT;
+		}else if(location < 0.75){
+			startPlace = UP;
+		}else{
+			startPlace = DOWN;
+		}
+		setPosition();
+		setRotation();
+		setMovingValues();
+	}
+
 
 	private function setPosition():void{
-		switch(_startPlace){
+		var offset:uint = 10;
+		switch(startPlace){
 			case LEFT:
-				x = (size / 2);
-				y = (uint)(10 + Math.random() * 620) - (size / 2);
+				center.x = _sizeDividedBy2;
+				center.y = (uint)(offset + Math.random() * (GameData.STAGE_HEIGHT - (2 * offset))) - _sizeDividedBy2;
 				break;
 			case RIGHT:
-				x = 1136 - (size / 2);
-				y = (uint)(10 + Math.random() * 620 - (size / 2));
+				center.x = GameData.STAGE_WIDTH - _sizeDividedBy2;
+				center.y = (uint)(offset + Math.random() * (GameData.STAGE_HEIGHT - (2 * offset)) - _sizeDividedBy2);
 				break;
 			case UP:
-				x = (uint)(10 + Math.random() * 1126) - (size / 2);
-				y = (size / 2);
+				center.x = (uint)(offset + Math.random() * (GameData.STAGE_WIDTH - (2 * offset))) - _sizeDividedBy2;
+				center.y = _sizeDividedBy2;
 				break;
 			case DOWN:
-				x = (uint)(10 + Math.random() * 1116) - (size / 2);
-				y = 640 - (size / 2);
+				center.x = (uint)(offset + Math.random() * (GameData.STAGE_WIDTH - (2 * offset))) - _sizeDividedBy2;
+				center.y = GameData.STAGE_HEIGHT - _sizeDividedBy2;
 				break;
 		}
 	}
 
-	private function setRotation():void{
-		switch(_startPlace){
+	public function setRotation():void{
+		switch(startPlace){
 			case LEFT:
 				rotation = 45 + (Math.random() * 90);
 				if(rotation > 70 && rotation < 110){
@@ -146,70 +141,67 @@ public class MovingSquare{
 		}
 	}
 
-	public function setMovingValues(rot:Number):void{
-		if(rot > 360){
-			rot -= 360;
+	public function setMovingValues():void{
+		if(rotation > 360){
+			rotation -= 360;
 		}
-		rot -= 90;
-		rot *= Math.PI / 180;
-		var cos:Number = Math.cos(rot);
-		var sin:Number = Math.sin(rot);
+		rotation -= 90;
+		rotation *= Math.PI / 180;
+		var cos:Number = Math.cos(rotation);
+		var sin:Number = Math.sin(rotation);
+		_sizeDividedBy2 = size / 2;
+		scale = size * 0.25;
 		dx = cos * _speed;
 		dy = sin * _speed;
-		_speed *= Math.random() * 2;
 	}
 
-	public function moveToCenter():void{
-
+	private function updateSize():void{
+		if(size < _maxSize){
+			size += 2;
+			_sizeDividedBy2 = size / 2;
+			scale = size * 0.25;
+		}
 	}
 
-	public function update():void{
+	public function update(dt:Number):void{
 		hitWall = "";
-		x += dx;
-		y += dy;
-		if(x < (size / 2)){
-			x = (size / 2);
+		center.x += dx * dt;
+		center.y += dy * dt;
+
+		if(center.x < _sizeDividedBy2){
+			updateSize();
+			center.x = _sizeDividedBy2;
 			dx *= -1;
 			hitWall = LEFT;
-		}else if(x > 1136 - (size / 2)){
-			x = 1136 - (size / 2);
+		}else if(center.x > GameData.STAGE_WIDTH - _sizeDividedBy2){
+			updateSize();
+			center.x = GameData.STAGE_WIDTH - _sizeDividedBy2;
 			dx *= -1;
 			hitWall = RIGHT;
-		}
-		if(y < (size / 2)){
-			y = (size / 2);
+		}else if(center.y < _sizeDividedBy2){
+			updateSize();
+			center.y = _sizeDividedBy2;
 			dy *= -1;
 			hitWall = UP;
-		}else if(y > 640 - (size / 2)){
-			y = 640 - (size / 2);
+		}else if(center.y > GameData.STAGE_HEIGHT - _sizeDividedBy2){
+			updateSize();
+			center.y = GameData.STAGE_HEIGHT - _sizeDividedBy2;
 			dy *= -1;
 			hitWall = DOWN;
 		}
-		if(hitWall){
-			if(mustDie){
-				isDead = true;
-			}else{
-				if(size < _maxSize)
-					size += 2;
-			}
-		}
-
-		nextFillRectangle.x = int(x + dx - (size / 2));
-		nextFillRectangle.y = int(y + dy - (size / 2));
-		nextFillRectangle.width = size;
-		nextFillRectangle.height = size;
-
-		fillRectangle.x = int(x - (size / 2));
-		fillRectangle.y = int(y - (size / 2));
-		fillRectangle.width = size;
-		fillRectangle.height = size;
-		center.x = x;
-		center.y = y;
 	}
 
 	public function reverse():void {
 		dx *= -1;
 		dy *= -1;
 	}
+
+	public function toString():String{
+		return  "x = " + center.x.toString() +
+				"\n y = " + center.y.toString() +
+				"\n startPlace = " + startPlace +
+				"\n-------------------";
+	}
+
 }
 }

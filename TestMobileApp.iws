@@ -2,39 +2,145 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/AdManager.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/AssetsManager.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/particles/BonusParticles.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/CreditsPopup.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/particles/ExplodeParticles.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/GButton.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/GCheckbox.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/GSelection.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/GameData.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/GameHUD.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/GameLostPopup.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/GameWonPopup.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/particles/GestureParticles.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/HowToPopup.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/gesture/data/IGeometryData.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/Level.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/LevelDescription.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/LevelSelection.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/Localization.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/MainMenu.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/OptionsMenu.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/PausePopup.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/PopupBackground.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/PopupBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/gesture/data/RectangleData.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/squares/ScoreData.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/ScreenBase.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/SoundsManager.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestMobileAppEmul-app.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/gesture/data/TriangleData.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/tutorial/Tutorial.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialHand.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialText.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/deluxe/Utils.as" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/data/bugs.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/locales/en.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/locales/fr.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/data/highscores.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/data/levels.json" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\assets\Kubus-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\assets\texture.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\deluxe\StarlingController.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\deluxe\squares\BitmapSquaresRenderer.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\deluxe\squares\ISquareRenderer.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\deluxe\squares\StarlingSquaresRenderer.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\animation\DelayedCall.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\animation\IAnimatable.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\animation\Juggler.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\animation\Transitions.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\animation\Tween.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\core\RenderSupport.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\core\Starling.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\core\StatsDisplay.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\core\starling_internal.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\BlendMode.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\Button.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\DisplayObject.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\DisplayObjectContainer.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\Image.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\MovieClip.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\Quad.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\QuadBatch.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\Sprite.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\display\Stage.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\errors\AbstractClassError.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\errors\AbstractMethodError.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\errors\MissingContextError.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\EnterFrameEvent.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\Event.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\EventDispatcher.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\KeyboardEvent.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\ResizeEvent.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\Touch.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\TouchEvent.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\TouchMarker.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\TouchPhase.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\events\TouchProcessor.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\extensions\ColorArgb.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\extensions\PDParticle.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\extensions\PDParticleSystem.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\extensions\Particle.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\extensions\ParticleSystem.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\filters\BlurFilter.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\filters\ColorMatrixFilter.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\filters\DisplacementMapFilter.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\filters\FragmentFilter.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\filters\FragmentFilterMode.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\text\BitmapChar.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\text\BitmapFont.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\text\MiniBitmapFont.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\text\TextField.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\text\TextFieldAutoSize.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\AtfData.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\ConcreteTexture.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\RenderTexture.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\SubTexture.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\Texture.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\TextureAtlas.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\TextureOptions.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\textures\TextureSmoothing.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\AssetManager.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\Color.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\HAlign.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\MatrixUtil.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\RectangleUtil.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\ScaleMode.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\VAlign.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\VertexData.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\deg2rad.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\formatString.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\getNextPowerOfTwo.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\rad2deg.as" afterPath="" />
+      <change type="DELETED" beforePath="C:\deluxe\squares\src\starling\utils\transformCoords.as" afterPath="" />
+      <change type="MOVED" beforePath="C:\deluxe\squares\src\assets\particle.pex" afterPath="$PROJECT_DIR$/src/assets/particles/particle.pex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile/Default-568h@2x.png" afterPath="$PROJECT_DIR$/mobile/Default-568h@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Genome2DContext.swc" afterPath="$PROJECT_DIR$/lib/Genome2DContext.swc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as" afterPath="$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as" afterPath="$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/components/GCameraController.as" afterPath="$PROJECT_DIR$/src/com/genome2d/components/GCameraController.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/geom/GLine.as" afterPath="$PROJECT_DIR$/src/com/genome2d/geom/GLine.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/node/GNode.as" afterPath="$PROJECT_DIR$/src/com/genome2d/node/GNode.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/node/GNodePool.as" afterPath="$PROJECT_DIR$/src/com/genome2d/node/GNodePool.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/components/renderables/particles/GSimpleParticle.as" afterPath="$PROJECT_DIR$/src/com/genome2d/components/renderables/particles/GSimpleParticle.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/components/renderables/particles/GSimpleParticleSystem.as" afterPath="$PROJECT_DIR$/src/com/genome2d/components/renderables/particles/GSimpleParticleSystem.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as" afterPath="$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/components/renderables/GTexturedQuad.as" afterPath="$PROJECT_DIR$/src/com/genome2d/components/renderables/GTexturedQuad.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/GameSignals.as" afterPath="$PROJECT_DIR$/src/deluxe/GameSignals.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/genome2d/Genome2D.as" afterPath="$PROJECT_DIR$/src/com/genome2d/Genome2D.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/gesture/GestureController.as" afterPath="$PROJECT_DIR$/src/deluxe/gesture/GestureController.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/gesture/data/GestureTypes.as" afterPath="$PROJECT_DIR$/src/deluxe/gesture/data/GestureTypes.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.as" afterPath="$PROJECT_DIR$/src/Main.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" afterPath="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp-app.xml" afterPath="$PROJECT_DIR$/TestMobileApp-app.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iml" afterPath="$PROJECT_DIR$/TestMobileApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.ipr" afterPath="$PROJECT_DIR$/TestMobileApp.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestMobileApp.iws" afterPath="$PROJECT_DIR$/TestMobileApp.iws" />
     </list>
     <ignored path="TestMobileApp.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.js2" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394759198197" ignored="false" />
-    <file path="/TestMobileApp.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394159293706" ignored="false" />
-    <file path="/TestMobileApp-app.xml" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394327819235" ignored="false" />
-    <file path="/StarlingController.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1393299310030" ignored="false" />
-    <file path="/GestureController.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394157914742" ignored="false" />
-    <file path="/GestureTypes.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1393377397743" ignored="false" />
-    <file path="/GestureData.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1393556793063" ignored="false" />
-    <file path="/MovingObject.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394155725044" ignored="false" />
-    <file path="/a.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1393727869519" ignored="false" />
-    <file path="/GameSignals.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394155598734" ignored="false" />
-    <file path="/EllipseData.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394158839592" ignored="false" />
-    <file path="/DrawTarget.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394158038020" ignored="false" />
-    <file path="/a.dummy" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394757289990" ignored="false" />
-    <file path="/SquaresManager.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394762332680" ignored="false" />
-    <file path="/Main.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394677455454" ignored="false" />
-    <file path="/MovingSquare.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394402080117" ignored="false" />
-    <file path="/ISquareRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321909851" ignored="false" />
-    <file path="/BitmapSquaresRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321976356" ignored="false" />
-    <file path="/StarlingSquaresRenderer.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394321959421" ignored="false" />
-    <file path="/Dummy.txt" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394761679904" ignored="false" />
-    <file path="/GTextureText.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394675667874" ignored="false" />
-    <file path="/GTextureAtlasFactory.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394588374781" ignored="false" />
-    <file path="/GTextureTextAlignType.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394674333084" ignored="false" />
-    <file path="/Genome2D.as" changelist="f0cc3052-4ca2-48ad-89dd-84d0c4df3d9d" time="1394677465046" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,91 +201,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="TutorialText.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialText.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="57" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="1632">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fr.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/locales/fr.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="20" selection-start="1417" selection-end="1417" vertical-scroll-proportion="-13.173913" vertical-offset="257" max-vertical-offset="784">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="en.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/locales/en.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="63" selection-start="1573" selection-end="1573" vertical-scroll-proportion="-12.478261" vertical-offset="257" max-vertical-offset="784">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="levels.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/assets/data/levels.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="192" column="49" selection-start="4307" selection-end="4307" vertical-scroll-proportion="0.7037037" vertical-offset="2692" max-vertical-offset="3232">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LevelDescription.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/ui/LevelDescription.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="103" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1408">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tutorial.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/ui/tutorial/Tutorial.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="9" selection-start="3060" selection-end="3060" vertical-scroll-proportion="0.0" vertical-offset="1376" max-vertical-offset="2384">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameHUD.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GameHUD.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="111" column="35" selection-start="3966" selection-end="3966" vertical-scroll-proportion="0.0" vertical-offset="1776" max-vertical-offset="2928">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="5" selection-start="3428" selection-end="3428" vertical-scroll-proportion="0.0">
+            <state line="456" column="42" selection-start="12649" selection-end="12649" vertical-scroll-proportion="0.0" vertical-offset="7296" max-vertical-offset="7712">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestMobileApp-app.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestMobileApp-app.xml">
+      <file leaf-file-name="AssetsManager.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/AssetsManager.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="38" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0">
+            <state line="25" column="58" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="400" max-vertical-offset="2128">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Genome2D.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/genome2d/Genome2D.as">
+      <file leaf-file-name="SoundsManager.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deluxe/SoundsManager.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="5" selection-start="7135" selection-end="7135" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SquaresManager.as" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="30" selection-start="4130" selection-end="4130" vertical-scroll-proportion="0.47640792">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GNodeFactory.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/genome2d/node/factory/GNodeFactory.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="50" selection-start="405" selection-end="428" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GTextureAtlasFactory.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GCurve.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/genome2d/geom/GCurve.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="48" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GTextureText.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureText.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="64" selection-start="5206" selection-end="5206" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GSimpleShape.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GSimpleShape.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MovingSquare.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="55" selection-start="4165" selection-end="4165" vertical-scroll-proportion="0.0">
+            <state line="32" column="49" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0" vertical-offset="512" max-vertical-offset="5392">
               <folding />
             </state>
           </provider>
@@ -206,22 +312,57 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/deluxe/gestures/data/EllipseData.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/gestures/DrawTarget.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/gesture/data/RectangleData.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/gesture/data/TriangleData.as" />
         <option value="$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/squares/ISquareRenderer.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/squares/StarlingSquaresRenderer.as" />
-        <option value="$PROJECT_DIR$/src/deluxe/squares/BitmapSquaresRenderer.as" />
-        <option value="$PROJECT_DIR$/TestMobileApp-app.xml" />
-        <option value="$PROJECT_DIR$/src/com/genome2d/node/GNode.as" />
-        <option value="$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as" />
-        <option value="$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureTextAlignType.as" />
-        <option value="$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureText.as" />
+        <option value="$PROJECT_DIR$/src/assets/kubus_title.xml" />
         <option value="$PROJECT_DIR$/src/com/genome2d/Genome2D.as" />
-        <option value="$PROJECT_DIR$/src/Main.as" />
+        <option value="$PROJECT_DIR$/src/assets/levels.json" />
+        <option value="$PROJECT_DIR$/src/assets/data.as" />
+        <option value="$PROJECT_DIR$/src/assets/particles/particle.pex" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/ScreenBase.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/GCheckbox.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/AdManager.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/PopupBackground.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/PopupBase.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/GSelection.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/GameLostPopup.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/HowToPopup.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/MainMenu.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/PausePopup.as" />
+        <option value="$PROJECT_DIR$/src/assets/data/bugs.txt" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/OptionsMenu.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/GButton.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/CreditsPopup.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/GameData.as" />
+        <option value="$PROJECT_DIR$/src/assets/data/highscores.json" />
+        <option value="$PROJECT_DIR$/src/deluxe/Localization.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/gesture/GestureParticles.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/LevelSelection.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/gesture/BonusParticles.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/GameWonPopup.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/SoundsManager.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/particles/ExplodeParticles.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/Level.as" />
         <option value="$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as" />
+        <option value="$PROJECT_DIR$/TestMobileApp-app.xml" />
+        <option value="$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/squares/ScoreData.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/TutorialText.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/Tutorial.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialHand.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/GameSignals.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialText.as" />
         <option value="$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/AssetsManager.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/gesture/GestureController.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/GameHUD.as" />
+        <option value="$PROJECT_DIR$/src/Main.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/tutorial/Tutorial.as" />
+        <option value="$PROJECT_DIR$/src/deluxe/ui/LevelDescription.as" />
+        <option value="$PROJECT_DIR$/src/assets/locales/fr.json" />
+        <option value="$PROJECT_DIR$/src/assets/locales/en.json" />
+        <option value="$PROJECT_DIR$/src/assets/data/levels.json" />
       </list>
     </option>
   </component>
@@ -276,6 +417,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,68 +464,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="deluxe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="deluxe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="squares" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,46 +481,43 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/deluxe" />
+    <property name="project.structure.side.proportion" value="0.26767093" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
-  </component>
-  <component name="PublishConfig">
-    <servers>
-      <server id="bc302d6c-3e5b-4a18-87f2-2530efb57e3f">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
+    <property name="options.searchVisible" value="true" />
+    <property name="SearchEverywhereHistory" value="ON_ID" />
   </component>
   <component name="RecentsManager">
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="deluxe.ui.tutorial" />
+      <recent name="deluxe.ui" />
+      <recent name="deluxe" />
+      <recent name="assets" />
       <recent name="deluxe.squares" />
-      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\deluxe\TestMobileApp\src\deluxe\squares" />
+      <recent name="C:\deluxe\squares\src\deluxe\particles" />
+      <recent name="C:\deluxe\squares\src\deluxe\gesture" />
+      <recent name="C:\deluxe\squares\src\deluxe\ui" />
+      <recent name="C:\deluxe\squares\src\assets\locales" />
+      <recent name="C:\deluxe\squares" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\deluxe\TestMobileApp\src\deluxe" />
-      <recent name="C:\deluxe\TestMobileApp\mobile" />
-      <recent name="C:\deluxe\TestMobileApp\src\assets" />
-      <recent name="C:\deluxe\TestMobileApp\src\deluxe\squares" />
-      <recent name="C:\deluxe\TestMobileApp\src\deluxe\gestures\data" />
+      <recent name="C:\deluxe\squares\src\deluxe\ui\tutorial" />
+      <recent name="C:\deluxe\squares\src\deluxe\particles" />
+      <recent name="C:\deluxe\squares\src\assets\ui" />
+      <recent name="C:\deluxe\squares\src\assets\gesture" />
+      <recent name="C:\deluxe\squares\src\assets\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Flash App.TestMobileApp">
+  <component name="RunManager" selected="Flash App.TestMobileApp_emul">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -448,11 +532,30 @@
         <LauncherParameters>
           <option name="browserFamily" value="FIREFOX" />
           <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
         </LauncherParameters>
       </option>
       <option name="moduleName" value="" />
       <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -500,6 +603,7 @@
         <LauncherParameters>
           <option name="browserFamily" value="FIREFOX" />
           <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
         </LauncherParameters>
       </option>
@@ -534,6 +638,7 @@
         <LauncherParameters>
           <option name="browserFamily" value="FIREFOX" />
           <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
         </LauncherParameters>
       </option>
@@ -555,14 +660,14 @@
       <method />
     </configuration>
     <configuration default="false" name="TestMobileApp_emul" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="TestMobileApp" />
+      <option name="BCName" value="TestMobileAppEmul" />
       <option name="IOSSimulatorSdkPath" value="" />
       <option name="adlOptions" value="" />
       <option name="airProgramParameters" value="" />
       <option name="appDescriptorForEmulator" value="IOS" />
       <option name="debugTransport" value="USB" />
       <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="Other" />
+      <option name="emulator" value="OtherIOSDevice" />
       <option name="emulatorAdlOptions" value="" />
       <option name="fastPackaging" value="true" />
       <option name="fullScreenHeight" value="640" />
@@ -572,6 +677,7 @@
         <LauncherParameters>
           <option name="browserFamily" value="FIREFOX" />
           <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
           <option name="playerPath" value="FlashPlayerDebugger.exe" />
         </LauncherParameters>
       </option>
@@ -638,90 +744,53 @@
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32078102" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29806453" sideWeight="0.5690377" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42991912" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23307292" sideWeight="0.718125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5" sideWeight="0.281875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32210243" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31640625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23746867" sideWeight="0.6834031" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.123697914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32823366" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4049479" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.pex" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_NEW_TODO" value="true" />
     <option name="myTodoPanelSettings">
-      <value>
-        <are-packages-shown value="false" />
-        <are-modules-shown value="false" />
-        <flatten-packages value="false" />
-        <is-autoscroll-to-source value="false" />
-      </value>
+      <TodoPanelSettings />
     </option>
-    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
-    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
-    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
-    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
-    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
-    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
-    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
-    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
-    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
-    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
-    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
-    <option name="UPDATE_FILTER_SCOPE_NAME" />
-    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
-    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
-    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
-    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
-    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
-    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
-    <option name="ACTIVE_VCS_NAME" />
-    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
-    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
-    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
-    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
-    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="3" />
+      <option name="time" value="28" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -729,104 +798,287 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/data/EllipseData.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ExtendedTimer.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="5" selection-start="741" selection-end="741" vertical-scroll-proportion="0.5382883" />
+        <state line="18" column="40" selection-start="599" selection-end="599" vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="1088" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/Genome2DContext.swc!/library.swf">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/PopupBase.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="266" column="30" selection-start="10249" selection-end="10259" vertical-scroll-proportion="0.38170347" />
+        <state line="32" column="76" selection-start="1155" selection-end="1168" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureTextAlignType.as">
+    <entry file="file://$PROJECT_DIR$/TestMobileAppEmul-app.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="34" selection-start="87" selection-end="108" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureFactory.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="694" selection-end="694" vertical-scroll-proportion="0.037558686" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/starling/display/QuadBatch.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="9" selection-start="12209" selection-end="12209" vertical-scroll-proportion="0.036697246">
+        <state line="212" column="40" selection-start="9920" selection-end="9920" vertical-scroll-proportion="0.88461536" vertical-offset="3024" max-vertical-offset="4480">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTexturedQuad.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/MainMenu.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="33" selection-start="602" selection-end="602" vertical-scroll-proportion="0.49172577" />
+        <state line="50" column="97" selection-start="1622" selection-end="1622" vertical-scroll-proportion="0.0" vertical-offset="235" max-vertical-offset="1104" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestMobileApp-app.xml">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/PausePopup.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="38" selection-start="919" selection-end="919" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="560" selection-end="560" vertical-scroll-proportion="0.0" vertical-offset="31" max-vertical-offset="752" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/Genome2D.as">
+    <entry file="file://$PROJECT_DIR$/src/assets/data/bugs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="5" selection-start="7135" selection-end="7135" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="3" column="87" selection-start="225" selection-end="225" vertical-scroll-proportion="0.104803495" vertical-offset="0" max-vertical-offset="458" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/node/factory/GNodeFactory.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GameLostPopup.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="50" selection-start="405" selection-end="428" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="35" column="0" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.39874738" vertical-offset="257" max-vertical-offset="736" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GSelection.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="3762" selection-end="3762" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="37" column="30" selection-start="1233" selection-end="1233" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1200" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/geom/GCurve.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GCheckbox.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="48" selection-start="256" selection-end="256" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="45" column="9" selection-start="1275" selection-end="1409" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1184" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GSimpleShape.as">
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/HowToPopup.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="499" selection-end="499" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="37" selection-start="985" selection-end="985" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="688" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/fonts/kubus_stroke.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GButton.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="9" selection-start="1003" selection-end="1133" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1136" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/genome2d/components/renderables/GTextureText.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="64" selection-start="5206" selection-end="5206" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="106" column="30" selection-start="2447" selection-end="2447" vertical-scroll-proportion="0.0" vertical-offset="1384" max-vertical-offset="4032" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.as">
+    <entry file="jar://$PROJECT_DIR$/lib/SonoportCollection1.swc!/library.swf">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="5" selection-start="3428" selection-end="3428" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="763" column="70" selection-start="32888" selection-end="32888" vertical-scroll-proportion="0.0" vertical-offset="11880" max-vertical-offset="88064" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/Genome2DContext.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="290" column="51" selection-start="10964" selection-end="10964" vertical-scroll-proportion="0.0" vertical-offset="4542" max-vertical-offset="17392" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/OptionsMenu.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="72" selection-start="2418" selection-end="2482" vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="1280" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/GameData.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="43" selection-start="711" selection-end="732" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/data/highscores.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="24" selection-start="177" selection-end="177" vertical-scroll-proportion="0.26337448" vertical-offset="0" max-vertical-offset="496" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/textures/factories/GTextureAtlasFactory.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1424" selection-end="1424" vertical-scroll-proportion="0.0" vertical-offset="251" max-vertical-offset="2512" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/Localization.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="78" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0" vertical-offset="690" max-vertical-offset="1168" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/fonts/kubus_score.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/particles/BonusParticles.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="29" selection-start="1586" selection-end="1586" vertical-scroll-proportion="0.0" vertical-offset="608" max-vertical-offset="1136" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GameWonPopup.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1671" selection-end="1671" vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="2848" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/LevelSelection.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="26" selection-start="1182" selection-end="1182" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1536" />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/greensock.swc!/library.swf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="611" column="40" selection-start="29319" selection-end="29319" vertical-scroll-proportion="0.61403507" vertical-offset="9566" max-vertical-offset="46336" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/ScreenBase.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="12" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.33233532" vertical-offset="161" max-vertical-offset="704" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestMobileApp-app.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="37" selection-start="2189" selection-end="2189" vertical-scroll-proportion="0.31638417" vertical-offset="416" max-vertical-offset="4528" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/squares/MovingSquare.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="197" column="55" selection-start="4165" selection-end="4165" vertical-scroll-proportion="0.0">
+        <state line="155" column="5" selection-start="3463" selection-end="3463" vertical-scroll-proportion="0.0" vertical-offset="2318" max-vertical-offset="3312" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/DrawTarget.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="43" selection-start="1339" selection-end="1339" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1472" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/particles/ExplodeParticles.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="29" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="1008" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/squares/ScoreData.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="33" selection-start="3472" selection-end="3472" vertical-scroll-proportion="0.68190473" vertical-offset="1962" max-vertical-offset="2704" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/Level.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="25" selection-start="349" selection-end="359" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="416" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/genome2d/node/GNode.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="551" column="0" selection-start="19402" selection-end="19402" vertical-scroll-proportion="0.0" vertical-offset="8269" max-vertical-offset="14400" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/PopupBackground.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="53" selection-start="603" selection-end="603" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1248" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/CreditsPopup.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="9" selection-start="858" selection-end="1476" vertical-scroll-proportion="0.0" vertical-offset="142" max-vertical-offset="864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/particles/GestureParticles.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="31" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.3946869" vertical-offset="400" max-vertical-offset="1040" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialHand.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="10" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="145" max-vertical-offset="672" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/GameSignals.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="43" selection-start="1589" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="213" max-vertical-offset="640">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/deluxe/squares/SquaresManager.as">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="30" selection-start="4130" selection-end="4130" vertical-scroll-proportion="0.47640792">
+        <state line="368" column="55" selection-start="11667" selection-end="11667" vertical-scroll-proportion="0.0" vertical-offset="5194" max-vertical-offset="5936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/gesture/GestureController.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="74" selection-start="4867" selection-end="4867" vertical-scroll-proportion="0.0" vertical-offset="2384" max-vertical-offset="8528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/adobe/osflash/signals/Signal.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="0" selection-start="3858" selection-end="3858" vertical-scroll-proportion="0.0" vertical-offset="1849" max-vertical-offset="3296">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/GameHUD.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="35" selection-start="3966" selection-end="3966" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="2528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="456" column="42" selection-start="12649" selection-end="12649" vertical-scroll-proportion="0.0" vertical-offset="7296" max-vertical-offset="7712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/tutorial/TutorialText.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="57" selection-start="483" selection-end="483" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1504">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/tutorial/Tutorial.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="9" selection-start="3060" selection-end="3060" vertical-scroll-proportion="0.0" vertical-offset="1081" max-vertical-offset="2352">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/AssetsManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="58" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/SoundsManager.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="49" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5072">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deluxe/ui/LevelDescription.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="103" selection-start="1300" selection-end="1300" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/locales/fr.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="20" selection-start="1417" selection-end="1417" vertical-scroll-proportion="-13.173913" vertical-offset="257" max-vertical-offset="784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/locales/en.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="63" selection-start="1573" selection-end="1573" vertical-scroll-proportion="-12.478261" vertical-offset="257" max-vertical-offset="784">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/data/levels.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="192" column="49" selection-start="4307" selection-end="4307" vertical-scroll-proportion="0.7037037" vertical-offset="2692" max-vertical-offset="3232">
           <folding />
         </state>
       </provider>
@@ -837,6 +1089,18 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -863,7 +1127,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.26767093" />
               </list>
             </option>
           </splitter-proportions>
@@ -871,11 +1135,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>TestMobileApp|TestMobileApp</last-edited>
+          <last-edited>TestMobileAppEmul|TestMobileApp</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.26767093" />
               </list>
             </option>
           </splitter-proportions>

@@ -1,0 +1,4 @@
+- can draw after game over ==> fixed
+- gestures explode after game over ==> fixed
+- sometimes squares counter doesnt go to 100% ==> fixed
+- when 2 gestures happen simultaneously, some squares are destroyed by the wrong target

@@ -35,7 +35,7 @@ public class GNodePool
 			node = g2d_createNew();
 		} else {
 			node = g2d_first;
-			//node.active = true;
+            node.setActive(true);
 		}
 
 		return node;
@@ -44,7 +44,7 @@ public class GNodePool
 	/**
 	 *	@private
 	 */
-	public function putToFront(p_node:GNode):void {
+	public function g2d_putToFront(p_node:GNode):void {
 		if (p_node == g2d_first) return;
 		
 		if (p_node.g2d_poolNext != null) p_node.g2d_poolNext.g2d_poolPrevious = p_node.g2d_poolPrevious;
@@ -60,7 +60,7 @@ public class GNodePool
 	/**
 	 *  @private
 	 */	
-	public function putToBack(p_node:GNode):void {
+	public function g2d_putToBack(p_node:GNode):void {
 		if (p_node == g2d_last) return;
 		
 		if (p_node.g2d_poolNext != null) p_node.g2d_poolNext.g2d_poolPrevious = p_node.g2d_poolPrevious;
@@ -78,7 +78,7 @@ public class GNodePool
 		if (g2d_maxCount == 0 || g2d_cachedCount < g2d_maxCount) {
 			g2d_cachedCount++;
 			node = GNodeFactory.createFromPrototype(g2d_prototype);
-			//node.setActive(!p_precache);
+            if (p_precache) node.setActive(false);
 			node.g2d_pool = this;
 			
 			if (g2d_first == null) {
