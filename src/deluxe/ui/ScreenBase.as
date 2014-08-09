@@ -26,12 +26,12 @@ public class ScreenBase extends GNode{
 			sprite.node.transform.y = offset + Math.round(Math.random() * (GameData.STAGE_HEIGHT - (offset * 2)));
 			sprite.node.transform.setScale(0,0);
 			addChild(sprite.node);
-			Tweener.addTween(sprite.node.transform, {time:0.3, transition:"easeoutquad", scaleX:1, scaleY:1, delay:(i / 1000) * 10});
+			Tweener.addTween(sprite.node.transform, {time:0.3, transition:"easeoutquad", scaleX:1, scaleY:1, delay:i / 100});
 		}
 
 		if(pTitle != ""){
 			_title = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-			_title.textureAtlasId = "KubusTitle";
+			_title.textureAtlasId = "Kubus72";
 			_title.text = pTitle;
 			_title.tracking = 0;
 			_title.align = GTextureTextAlignType.MIDDLE;

@@ -23,9 +23,11 @@ public class GameSignals {
 	public static const RESTART_LEVEL:Signal = new Signal();
 	public static const AD_COMPLETE:Signal = new Signal();
 	public static const OPTIONS_MENU:Signal = new Signal();
-	public static const CHANGE_LANG:Signal = new Signal();
-	public static const CHANGE_MUSIC:Signal = new Signal();
-	public static const CHANGE_SFX:Signal = new Signal();
+	public static const SHOW_LEADERBOARD:Signal = new Signal();
+	public static const SHOW_ACHIEVEMENTS:Signal = new Signal();
+	public static const UPDATE_LANG:Signal = new Signal();
+	public static const UPDATE_MUSIC:Signal = new Signal();
+	public static const UPDATE_SFX:Signal = new Signal();
 	public static const LANG_CHANGED:Signal = new Signal();
 	public static const COMBO_UPDATE:Signal = new Signal();
 	public static const COMBO_BROKEN:Signal = new Signal();

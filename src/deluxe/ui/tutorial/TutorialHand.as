@@ -21,17 +21,17 @@ public class TutorialHand extends GNode{
 	}
 
 	public function startTween():void{
-		TweenLite.to(_hand.node.transform, 0.2, {y:-_offset, ease:Quad.easeIn, onComplete:tweenUp});
+		TweenLite.to(_hand.node.transform, 0.2, {roundProps:["y"],y:-_offset, ease:Quad.easeIn, onComplete:tweenUp});
 	}
 
 	private function tweenUp():void
 	{
-		TweenLite.to(_hand.node.transform, 0.4, {y:_offset, ease:Quad.easeIn, onComplete:tweenDown});
+		TweenLite.to(_hand.node.transform, 0.4, {roundProps:["y"], y:_offset, ease:Quad.easeIn, onComplete:tweenDown});
 	}
 
 	private function tweenDown():void
 	{
-		TweenLite.to(_hand.node.transform, 0.4, {y:-_offset, ease:Quad.easeOut, onComplete:tweenUp});
+		TweenLite.to(_hand.node.transform, 0.4, {roundProps:["y"],y:-_offset, ease:Quad.easeOut, onComplete:tweenUp});
 	}
 
 	public function pauseTween():void {

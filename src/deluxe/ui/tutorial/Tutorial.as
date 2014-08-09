@@ -19,7 +19,7 @@ import deluxe.GameData;
 import deluxe.GameSignals;
 import deluxe.Localization;
 import deluxe.gesture.DrawTarget;
-import deluxe.particles.GestureParticles;
+import deluxe.particles.sd.SDGestureParticles;
 
 import flash.events.TimerEvent;
 import flash.geom.Point;
@@ -33,7 +33,7 @@ public class Tutorial extends GNode{
 	private var _tut_2:TutorialText;
 	private var _tut_3:TutorialText;
 	private var _tut_4:TutorialText;
-	private var _particles:GestureParticles;
+	private var _particles:SDGestureParticles;
 
 	private var _timer:ExtendedTimer;
 
@@ -47,27 +47,27 @@ public class Tutorial extends GNode{
 
 		_hand = new TutorialHand();
 
-		_tut_0 = new TutorialText(Localization.getString("TUT_STEP_0_ID"), new Point(GameData.STAGE_WIDTH / 4, GameData.STAGE_HEIGHT * 0.6));
+		_tut_0 = new TutorialText(Localization.getString("TUT_STEP_0_ID"), new Point(int(GameData.STAGE_WIDTH / 4), int(GameData.STAGE_HEIGHT * 0.7)));
 		addChild(_tut_0);
 
-		_hand.transform.setPosition(_tut_0.transform.x, _tut_0.transform.y - _hand.getBounds(_hand).height - (_tut_0.getBounds(_tut_0).height / 2));
+		_hand.transform.setPosition(int(_tut_0.transform.x), int(_tut_0.transform.y - _hand.getBounds(_hand).height - (_tut_0.getBounds(_tut_0).height / 2)));
 		addChild(_hand);
-		GameSignals.TUT_STEP_1_START.dispatch(new Point(_hand.transform.x,_hand.transform.y - _hand.getBounds(_hand).height));
+		GameSignals.TUT_STEP_1_START.dispatch(new Point(GameData.STAGE_WIDTH / 4, GameData.STAGE_HEIGHT / 2));
 
 		var target:GSprite = GNodeFactory.createNodeWithComponent(GSprite) as GSprite;
 		target.textureId = "tutorial_target";
 		_target = target.node;
 		addChild(_target);
-		_target.transform.setPosition(_hand.transform.x, _hand.transform.y - _target.getBounds(_target).height);
+		_target.transform.setPosition(GameData.STAGE_WIDTH / 4, GameData.STAGE_HEIGHT / 2);
 	}
 
 	private function onTutStep1Complete():void {
 		removeChild(_tut_0);
-		_tut_1 = new TutorialText(Localization.getString("TUT_STEP_1_ID"), new Point(GameData.STAGE_WIDTH / 4, GameData.STAGE_HEIGHT * 0.6));
+		_tut_1 = new TutorialText(Localization.getString("TUT_STEP_1_ID"), new Point(int(GameData.STAGE_WIDTH / 4), int(GameData.STAGE_HEIGHT * 0.7)));
 		addChild(_tut_1);
 		_hand.pauseTween();
 		tweenCircle();
-		_particles = GNodeFactory.createNodeWithComponent(GestureParticles) as GestureParticles;
+		_particles = GNodeFactory.createNodeWithComponent(SDGestureParticles) as SDGestureParticles;
 		_particles.emit = true;
 		GameSignals.TUT_STEP_2_COMPLETE.add(OnTutStep2Complete);
 	}
@@ -81,7 +81,7 @@ public class Tutorial extends GNode{
 		GameSignals.TUT_STEP_2_COMPLETE.remove(OnTutStep2Complete);
 		removeChild(_tut_1);
 
-		var position:Point = new Point(target.data.position.x,  target.data.position.y + (target.data.height / 2));
+		var position:Point = new Point(int(target.data.position.x),  int(target.data.position.y + (target.data.height / 2) * 1.2));
 		if(target.data.position.y - (GameData.STAGE_HEIGHT / 2) + (target.data.height / 2) >= GameData.STAGE_HEIGHT / 2){
 			position.y = int(GameData.STAGE_HEIGHT * 0.9);
 		}
@@ -96,15 +96,17 @@ public class Tutorial extends GNode{
 		removeChild(_tut_2);
 		GameSignals.TUT_STEP_3_COMPLETE.remove(onTutStep3Complete);
 		GameSignals.GAME_PAUSE.dispatch(true, false);
-		var position:Point = new Point(int(GameData.STAGE_WIDTH * 5 / 7), int(GameData.STAGE_HEIGHT * 0.1));
+		var position:Point = new Point(int(GameData.STAGE_WIDTH * 5 / 7), int(GameData.STAGE_HEIGHT * 0.07));
 		_tut_3 = new TutorialText(Localization.getString("TUT_STEP_3_ID"), position);
 		addChild(_tut_3);
 		_hand.startTween();
 		_hand.transform.rotation = 90 * GameData.DEG_TO_RAD;
 		_hand.setActive(true);
-		_hand.transform.setPosition(GameData.STAGE_WIDTH * 0.9, GameData.STAGE_HEIGHT * 0.05);
+		_hand.transform.setPosition(int(GameData.STAGE_WIDTH * 0.9), int(GameData.STAGE_HEIGHT * 0.05));
 		_timer.addEventListener(TimerEvent.TIMER, onTimerStep4);
 		_timer.start();
+
+		_tut_3.positionFromHand(_hand.transform.x, "right");
 	}
 
 	private function onTimerStep5(event:TimerEvent):void {
@@ -124,16 +126,17 @@ public class Tutorial extends GNode{
 		_tut_4 = new TutorialText(Localization.getString("TUT_STEP_4_ID"), position);
 		addChild(_tut_4);
 		_hand.transform.scaleY = -1;
-		_hand.transform.setPosition(GameData.STAGE_WIDTH * 0.075, GameData.STAGE_HEIGHT * 0.96);
+		_hand.transform.setPosition(int(GameData.STAGE_WIDTH * 0.075), int(GameData.STAGE_HEIGHT * 0.96));
 		_timer.addEventListener(TimerEvent.TIMER, onTimerStep5);
 		_timer.start();
+		_tut_4.positionFromHand(_hand.transform.x, "left");
 	}
 
 	private function tweenCircle():void
 	{
 		var n:CirclePath2D = new CirclePath2D(GameData.STAGE_WIDTH / 2, GameData.STAGE_HEIGHT / 2,GameData.STAGE_HEIGHT / 4);
-		n.width = 2 * n.height;
-		TweenLite.to(_hand.transform, 5, {ease:Quad.easeOut, circlePath2D:{path:n, startAngle:200, endAngle:200, autoRotate:false, direction:Direction.CLOCKWISE, extraRevolutions:1}, onComplete:tweenCircle, onUpdate:updateParticles});
+		n.width = GameData.STAGE_WIDTH / 2;
+		TweenLite.to(_hand.transform, 5, {ease:Quad.easeOut,roundProps:["x", "y"], circlePath2D:{path:n, startAngle:180, endAngle:180, autoRotate:false, direction:Direction.CLOCKWISE, extraRevolutions:1}, onComplete:tweenCircle, onUpdate:updateParticles});
 	}
 
 	private function updateParticles():void{

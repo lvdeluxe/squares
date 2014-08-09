@@ -11,8 +11,11 @@ public class GameData {
 	public static var STAGE_WIDTH:uint = 0;
 	public static var STAGE_HEIGHT:uint = 0;
 	public static var MAX_PIXELS:uint = 0;
+	public static var NUM_LEVELS:uint = 24;
 	public static var DEG_TO_RAD:Number = Math.PI / 180;
 	public static var RAD_TO_DEG:Number = 180 / Math.PI;
+	public static const EASE_FACTOR:Number = 1.70158;
+	public static var RESOLUTION_FACTOR:uint = 1;
 	public static var MAIN_MENU_FROM_PAUSE:String = "fromPause";
 	public static var MAIN_MENU_FROM_GAME_WON:String = "fromGameWon";
 	public static var MAIN_MENU_FROM_GAME_LOST:String = "fromGameLost";

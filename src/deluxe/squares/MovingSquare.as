@@ -6,11 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 package deluxe.squares {
-
+import deluxe.GameData;
 import deluxe.GameData;
 import deluxe.gesture.DrawTarget;
 
 import flash.geom.Point;
+import flash.utils.getTimer;
 
 public class MovingSquare{
 
@@ -29,7 +30,7 @@ public class MovingSquare{
 
 	public var hitWall:String = "";
 
-	private var _initialSize:uint = 4;
+	private var _initialSize:uint = 4 * GameData.RESOLUTION_FACTOR;
 	public var size:uint;
 
 	public var center:Point = new Point();
@@ -37,10 +38,15 @@ public class MovingSquare{
 	public var caughtBy:DrawTarget;
 	private var _sizeDividedBy2:Number;
 
-	private var _maxSize:uint = 40;
+	private var _maxSize:uint = 40 * GameData.RESOLUTION_FACTOR;
 
 	public var scale:Number;
 
+	//private var _startTweenTime:Number;
+	private var _startTweenX:Number;
+	private var _diffTweenX:Number;
+	private var _startTweenY:Number;
+	private var _diffTweenY:Number;
 
 	public function MovingSquare() {
 		//init();
@@ -71,7 +77,7 @@ public class MovingSquare{
 
 
 	private function setPosition():void{
-		var offset:uint = 10;
+		var offset:uint = 10 * GameData.RESOLUTION_FACTOR;
 		switch(startPlace){
 			case LEFT:
 				center.x = _sizeDividedBy2;
@@ -157,7 +163,7 @@ public class MovingSquare{
 
 	private function updateSize():void{
 		if(size < _maxSize){
-			size += 2;
+			size += 2 * GameData.RESOLUTION_FACTOR;
 			_sizeDividedBy2 = size / 2;
 			scale = size * 0.25;
 		}
@@ -165,8 +171,8 @@ public class MovingSquare{
 
 	public function update(dt:Number):void{
 		hitWall = "";
-		center.x += dx * dt;
-		center.y += dy * dt;
+		center.x += dx * dt * GameData.RESOLUTION_FACTOR;
+		center.y += dy * dt * GameData.RESOLUTION_FACTOR;
 
 		if(center.x < _sizeDividedBy2){
 			updateSize();
@@ -189,6 +195,18 @@ public class MovingSquare{
 			dy *= -1;
 			hitWall = DOWN;
 		}
+	}
+
+	public function setStartTweenTime():void{
+		_startTweenX = center.x;
+		_diffTweenX = caughtBy.data.position.x - _startTweenX;
+		_startTweenY = center.y;
+		_diffTweenY = caughtBy.data.position.y - _startTweenY;
+	}
+
+	public function moveToCenter(dt:Number):void{
+		center.x = _diffTweenX * caughtBy.data.easeTime + _startTweenX;
+		center.y = _diffTweenY * caughtBy.data.easeTime + _startTweenY;
 	}
 
 	public function reverse():void {

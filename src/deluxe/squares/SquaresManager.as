@@ -11,14 +11,12 @@ import com.genome2d.Genome2D;
 import com.genome2d.context.GBlendMode;
 import com.genome2d.context.IContext;
 import com.genome2d.textures.GTexture;
-import com.genome2d.textures.GTextureFilteringType;
-import com.genome2d.textures.factories.GTextureFactory;
-import com.greensock.TweenLite;
 import com.greensock.TweenMax;
 import com.greensock.easing.Back;
 import com.greensock.easing.Circ;
 
-import deluxe.AssetsManager;
+import deluxe.AssetsHDManager;
+import deluxe.AssetsSDManager;
 import deluxe.ExtendedTimer;
 import deluxe.GameData;
 import deluxe.GameSignals;
@@ -46,7 +44,7 @@ public class SquaresManager {
 //	private var _totalPixels:uint = 1136 * 640;
 	private var _currentPixels:uint = 0;
 
-	private var _geometries:Vector.<IGeometryData> = new Vector.<IGeometryData>();
+	private var _geometries:Vector.<EllipseData> = new Vector.<EllipseData>();
 
 	private var _maxSquares:uint = 5000;
 
@@ -75,6 +73,8 @@ public class SquaresManager {
 	private var _incSpawnTutorial:Number = 0;
 	private var _isTutorialStep2:Boolean = false;
 
+	private var _texture:GTexture;
+
 	public function SquaresManager(pHud:GameHUD) {
 		_hud = pHud;
 		GameSignals.GESTURE_DRAW.add(onGestureDrawn);
@@ -83,6 +83,13 @@ public class SquaresManager {
 		GameSignals.TUT_STEP_1_START.add(onTutStep1);
 		GameSignals.TUT_STEP_1_COMPLETE.add(onTutStep1Complete);
 		GameSignals.TUT_STEP_3_COMPLETE.add(onTutStep2Complete);
+
+
+		if(GameData.STAGE_WIDTH == 2048){
+			_texture = AssetsHDManager.SquareTexture;
+		}else{
+			_texture = AssetsSDManager.SquareTexture;
+		}
 
 		_context = _genome2d.getContext();
 		createSquares();
@@ -93,9 +100,11 @@ public class SquaresManager {
 	}
 	private function onTutStep1Complete():void{
 		_isTutorial = false;
+		_timer.resume();
 		_isTutorialStep2 = true;
 	}
 	private function onTutStep1(pos:Point):void{
+		_timer.pause();
 		_isTutorial = true;
 	}
 
@@ -130,12 +139,13 @@ public class SquaresManager {
 			_pool.push(_current[i]);
 		}
 		_current = new Vector.<MovingSquare>();
-		_geometries = new Vector.<IGeometryData>();
+		_geometries = new Vector.<EllipseData>();
 	}
 
 	public function pause():void{
 		_paused = true;
-		_timer.pause();
+		if(_timer)
+			_timer.pause();
 	}
 	public function resume():void{
 		_paused = false;
@@ -177,7 +187,7 @@ public class SquaresManager {
 		if(_currentScore.destroyed >= Main.CURRENT_LEVEL.numSquaresToCatch){
 			_gameOver = true;
 			_timer.stop();
-			TweenMax.killAll();
+			//TweenMax.killAll();
 			GameSignals.GAME_OVER.dispatch(true, _currentScore);
 		}
 		_hud.updateNumSquares(_currentScore.destroyed);
@@ -215,13 +225,15 @@ public class SquaresManager {
 	}
 
 	private function catchAllMovingObjects(drawTarget:DrawTarget):void{
+
 		for(var i:uint = 0 ; i < _current.length ; i++){
 			var mo:MovingSquare = _current[i] as MovingSquare;
 			if(mo.caughtBy == null){
 				var intersects:Boolean = checkIntersectionsWithPoint(mo.center);
 				if(intersects){
 					mo.caughtBy = drawTarget;
-					TweenMax.to(mo.center,Main.CURRENT_LEVEL.gestureExplosionSpeedMilli,{x:drawTarget.data.position.x, y:drawTarget.data.position.y, ease:Back.easeIn});
+					mo.setStartTweenTime();
+//					TweenMax.to(mo.center,Main.CURRENT_LEVEL.gestureExplosionSpeedMilli,{x:drawTarget.data.position.x, y:drawTarget.data.position.y, ease:Back.easeIn});
 				}
 			}
 		}
@@ -266,36 +278,37 @@ public class SquaresManager {
 				var geometry:IGeometryData = _geometries[i];
 				if(geometry is EllipseData){
 					returnVals.push(testEllipseIntersection(geometry as EllipseData, center));
-				}else if(geometry is TriangleData){
-					returnVals.push(testTriangleIntersection(geometry as TriangleData, center));
-				}else if (geometry is RectangleData){
-					returnVals.push(testRectangleIntersection(geometry as RectangleData, center));
 				}
+//				else if(geometry is TriangleData){
+//					returnVals.push(testTriangleIntersection(geometry as TriangleData, center));
+//				}else if (geometry is RectangleData){
+//					returnVals.push(testRectangleIntersection(geometry as RectangleData, center));
+//				}
 			}
 			return returnVals.indexOf(true) != -1;
 		}
 	}
 
-	private function testRectangleIntersection(rect:RectangleData, pt:Point):Boolean{
-//		if(Point.distance(pt, rect.position) <= rect.maxRadius){
-			return rect.bounds.containsPoint(pt);
-//		}
-//		return false;
-	}
-
-	private function testTriangleIntersection(triangle:TriangleData, pt:Point):Boolean{
-//		if(Point.distance(pt, triangle.position) <= triangle.maxRadius){
-//			if(triangle.bounds.containsPoint(pt)){
-
-				_planeAB = (triangle.verticeA.x-pt.x)*(triangle.verticeB.y-pt.y)-(triangle.verticeB.x - pt.x)*(triangle.verticeA.y-pt.y);
-				_planeBC = (triangle.verticeB.x-pt.x)*(triangle.verticeC.y-pt.y)-(triangle.verticeC.x - pt.x)*(triangle.verticeB.y-pt.y);
-				_planeCA = (triangle.verticeC.x-pt.x)*(triangle.verticeA.y-pt.y)-(triangle.verticeA.x - pt.x)*(triangle.verticeC.y-pt.y);
-
-				return Math.abs(_planeAB)/_planeAB == Math.abs(_planeBC) / _planeBC && Math.abs(_planeBC) / _planeBC == Math.abs(_planeCA) / _planeCA;
-//			}
-//		}
-//		return false;
-	}
+//	private function testRectangleIntersection(rect:RectangleData, pt:Point):Boolean{
+////		if(Point.distance(pt, rect.position) <= rect.maxRadius){
+//			return rect.bounds.containsPoint(pt);
+////		}
+////		return false;
+//	}
+//
+//	private function testTriangleIntersection(triangle:TriangleData, pt:Point):Boolean{
+////		if(Point.distance(pt, triangle.position) <= triangle.maxRadius){
+////			if(triangle.bounds.containsPoint(pt)){
+//
+//				_planeAB = (triangle.verticeA.x-pt.x)*(triangle.verticeB.y-pt.y)-(triangle.verticeB.x - pt.x)*(triangle.verticeA.y-pt.y);
+//				_planeBC = (triangle.verticeB.x-pt.x)*(triangle.verticeC.y-pt.y)-(triangle.verticeC.x - pt.x)*(triangle.verticeB.y-pt.y);
+//				_planeCA = (triangle.verticeC.x-pt.x)*(triangle.verticeA.y-pt.y)-(triangle.verticeA.x - pt.x)*(triangle.verticeC.y-pt.y);
+//
+//				return Math.abs(_planeAB)/_planeAB == Math.abs(_planeBC) / _planeBC && Math.abs(_planeBC) / _planeBC == Math.abs(_planeCA) / _planeCA;
+////			}
+////		}
+////		return false;
+//	}
 
 	private function testEllipseIntersection(ellipse:EllipseData, pt:Point):Boolean{
 		//if(Point.distance(pt, ellipse.position) <= ellipse.maxRadius){
@@ -358,6 +371,11 @@ public class SquaresManager {
 		if(!_paused && !_gameOver)
 			_currentScore.time += dt;
 			_hud.updateTime(_currentScore.time);
+
+		for(var j:uint = 0 ; j < _geometries.length ; j++){
+			_geometries[j].updateTime(dt);
+		}
+
 		var numTmp:uint = _current.length;
 		for(var i:uint = 0 ; i < numTmp; i++){
 			var mo:MovingSquare = _current[i] as MovingSquare;
@@ -378,10 +396,12 @@ public class SquaresManager {
 							mo.reverse();
 							mo.update(dt);
 						}
+					}else{
+						mo.moveToCenter(dt);
 					}
 				}
 			}
-			_context.draw(AssetsManager.SquareTexture,mo.center.x, mo.center.y, mo.scale, mo.scale,0,1,1,1,1,GBlendMode.NORMAL);
+			_context.draw(_texture,mo.center.x, mo.center.y, mo.scale, mo.scale,0,1,1,1,1,GBlendMode.NORMAL);
 		}
 		if(!_gameOver)
 			_hud.updatePercent(uint(numTmp / Main.CURRENT_LEVEL.squaresGameOver * 100));
@@ -389,7 +409,7 @@ public class SquaresManager {
 			_gameOver = true;
 			_timer.stop();
 			_hud.updatePercent(100);
-			GameSignals.GAME_OVER.dispatch(false);
+			GameSignals.GAME_OVER.dispatch(false, _currentScore);
 		}
 	}
 }

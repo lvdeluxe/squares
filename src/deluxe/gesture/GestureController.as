@@ -7,25 +7,23 @@
  */
 package deluxe.gesture {
 import com.genome2d.Genome2D;
+import com.genome2d.components.renderables.particles.GSimpleParticleSystem;
 import com.genome2d.node.factory.GNodeFactory;
 
+import deluxe.GameData;
 import deluxe.GameSignals;
 import deluxe.SoundsManager;
 import deluxe.gesture.data.EllipseData;
 import deluxe.gesture.data.GestureTypes;
-import deluxe.gesture.data.IGeometryData;
-import deluxe.gesture.data.RectangleData;
-import deluxe.gesture.data.TriangleData;
-import deluxe.particles.GestureParticles;
+import deluxe.particles.BaseGestureParticles;
+import deluxe.particles.hd.HDGestureParticles;
+import deluxe.particles.sd.SDGestureParticles;
 
-import flash.display.Sprite;
 import flash.display.Stage;
 import flash.events.Event;
 import flash.events.MouseEvent;
-import flash.events.TimerEvent;
 import flash.geom.Point;
 import flash.geom.Rectangle;
-import flash.utils.Timer;
 
 import deluxe.gesture.data.GestureData;
 
@@ -40,7 +38,7 @@ public class GestureController {
 	private var _maxMoves:uint = 10;
 	private var _allTargets:Vector.<DrawTarget> = new Vector.<DrawTarget>();
 	public var isMouseDown:Boolean = false;
-	private var _particles:GestureParticles;
+	private var _particles:BaseGestureParticles;
 	private var _paused:Boolean = false;
 
 	private var _circleMaxError:uint = 2;
@@ -60,7 +58,10 @@ public class GestureController {
 		GameSignals.ELLIPSE_EXPLODE.add(onExplode);
 		GameSignals.TUT_STEP_1_START.add(onTutorialStep1);
 		GameSignals.TUTORIAL_COMPLETE.add(onTutorialComplete);
-		_particles = GNodeFactory.createNodeWithComponent(GestureParticles) as GestureParticles;
+		if(GameData.STAGE_WIDTH == 2048)
+			_particles = GNodeFactory.createNodeWithComponent(HDGestureParticles) as BaseGestureParticles;
+		else
+			_particles = GNodeFactory.createNodeWithComponent(SDGestureParticles) as BaseGestureParticles;
 		_particles.node.setActive(false);
 	}
 
@@ -71,7 +72,7 @@ public class GestureController {
 	private function onTutorialStep1(pos:Point):void{
 		_tutStep1Position = pos;
 		_realGestureExplosionSpeed = Main.CURRENT_LEVEL.gestureExplosionSpeed;
-		Main.CURRENT_LEVEL.gestureExplosionSpeed = 5000;
+		Main.CURRENT_LEVEL.gestureExplosionSpeed = 3000;
 		Main.CURRENT_LEVEL.gestureExplosionSpeedMilli = Main.CURRENT_LEVEL.gestureExplosionSpeed / 1000;
 		_particles.setEnergy(Main.CURRENT_LEVEL.gestureExplosionSpeed);
 	}
@@ -145,7 +146,7 @@ public class GestureController {
 	}
 
 	private function isValidTouchPosition(stageX:Number, stageY:Number):Boolean{
-		var offset:Number = 50;
+		var offset:Number = 64 * GameData.RESOLUTION_FACTOR;
 		var rect:Rectangle = new Rectangle(_tutStep1Position.x - offset / 2, _tutStep1Position.y - offset / 2, offset, offset);
 		if(rect.contains(stageX,stageY) && !_alreadyStartedTutorialStep1){
 			GameSignals.TUT_STEP_1_COMPLETE.dispatch();
@@ -161,7 +162,9 @@ public class GestureController {
 		var dy:int =_py - _stage.mouseY;
 		_triangleBuffer.push(new Point(_stage.mouseX, _stage.mouseY));
 		var distance:Number=dx*dx+dy*dy;
-		SoundsManager.pitchLooper(Math.sqrt(distance) / 35);
+		if(SoundsManager.playSfx)
+			SoundsManager.pitchLooper(distance);
+//			SoundsManager.pitchLooper(Math.sqrt(distance) / 100);
 		if (distance>400) {
 			var angle:Number=Math.atan2(dy,dx) * _toDegrees;
 			if (angle>=22*-1&&angle<23) {
@@ -230,142 +233,142 @@ public class GestureController {
 					checkTargetsToDestroy();
 					GameSignals.GESTURE_DRAW.dispatch(testCircleCounterClockWise);
 				}
-				else{
-					var testTriangleUpClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_UP_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-					if(testTriangleUpClockWise != null){
-						_allTargets.push(testTriangleUpClockWise);
-						checkTargetsToDestroy();
-						GameSignals.GESTURE_DRAW.dispatch(testTriangleUpClockWise);
-					}
-					else{
-						var testTriangleUpCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_UP_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-						if(testTriangleUpCounterClockWise != null){
-							_allTargets.push(testTriangleUpCounterClockWise);
-							checkTargetsToDestroy();
-							GameSignals.GESTURE_DRAW.dispatch(testTriangleUpCounterClockWise);
-						}else{
-							var testTriangleDownClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_DOWN_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-							if(testTriangleDownClockWise != null){
-								_allTargets.push(testTriangleDownClockWise);
-								checkTargetsToDestroy();
-								GameSignals.GESTURE_DRAW.dispatch(testTriangleDownClockWise);
-							}else{
-								var testTriangleDownCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_DOWN_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-								if(testTriangleDownCounterClockWise != null){
-									_allTargets.push(testTriangleDownCounterClockWise);
-									checkTargetsToDestroy();
-									GameSignals.GESTURE_DRAW.dispatch(testTriangleDownCounterClockWise);
-								}else{
-									var testTriangleLeftClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_LEFT_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-									if(testTriangleLeftClockWise != null){
-										_allTargets.push(testTriangleLeftClockWise);
-										checkTargetsToDestroy();
-										GameSignals.GESTURE_DRAW.dispatch(testTriangleLeftClockWise);
-									}else{
-										var testTriangleLeftCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_LEFT_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-										if(testTriangleLeftCounterClockWise != null){
-											_allTargets.push(testTriangleLeftCounterClockWise);
-											checkTargetsToDestroy();
-											GameSignals.GESTURE_DRAW.dispatch(testTriangleLeftCounterClockWise);
-										}else{
-											var testTriangleRightClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_RIGHT_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-											if(testTriangleRightClockWise != null){
-												_allTargets.push(testTriangleRightClockWise);
-												checkTargetsToDestroy();
-												GameSignals.GESTURE_DRAW.dispatch(testTriangleRightClockWise);
-											}else{
-												var testTriangleRightCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_RIGHT_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
-												if(testTriangleRightCounterClockWise != null){
-													_allTargets.push(testTriangleRightCounterClockWise);
-													checkTargetsToDestroy();
-													GameSignals.GESTURE_DRAW.dispatch(testTriangleRightCounterClockWise);
-												}else{
-													var testRectangleClockWise:DrawTarget = testRectangle(GestureTypes.RECTANGLE_CLOCKWISE, _rectangleMaxError, "rectangle_gesture", setRectangleData);
-													if(testRectangleClockWise != null){
-														_allTargets.push(testRectangleClockWise);
-														checkTargetsToDestroy();
-														GameSignals.GESTURE_DRAW.dispatch(testRectangleClockWise);
-													}else{
-														var testRectangleCounterClockWise:DrawTarget = testRectangle(GestureTypes.RECTANGLE_COUNTER_CLOCKWISE, _rectangleMaxError, "rectangle_gesture", setRectangleData);
-														if(testRectangleCounterClockWise != null){
-															_allTargets.push(testRectangleCounterClockWise);
-															checkTargetsToDestroy();
-															GameSignals.GESTURE_DRAW.dispatch(testRectangleCounterClockWise);
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+//				else{
+//					var testTriangleUpClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_UP_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//					if(testTriangleUpClockWise != null){
+//						_allTargets.push(testTriangleUpClockWise);
+//						checkTargetsToDestroy();
+//						GameSignals.GESTURE_DRAW.dispatch(testTriangleUpClockWise);
+//					}
+//					else{
+//						var testTriangleUpCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_UP_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//						if(testTriangleUpCounterClockWise != null){
+//							_allTargets.push(testTriangleUpCounterClockWise);
+//							checkTargetsToDestroy();
+//							GameSignals.GESTURE_DRAW.dispatch(testTriangleUpCounterClockWise);
+//						}else{
+//							var testTriangleDownClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_DOWN_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//							if(testTriangleDownClockWise != null){
+//								_allTargets.push(testTriangleDownClockWise);
+//								checkTargetsToDestroy();
+//								GameSignals.GESTURE_DRAW.dispatch(testTriangleDownClockWise);
+//							}else{
+//								var testTriangleDownCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_DOWN_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//								if(testTriangleDownCounterClockWise != null){
+//									_allTargets.push(testTriangleDownCounterClockWise);
+//									checkTargetsToDestroy();
+//									GameSignals.GESTURE_DRAW.dispatch(testTriangleDownCounterClockWise);
+//								}else{
+//									var testTriangleLeftClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_LEFT_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//									if(testTriangleLeftClockWise != null){
+//										_allTargets.push(testTriangleLeftClockWise);
+//										checkTargetsToDestroy();
+//										GameSignals.GESTURE_DRAW.dispatch(testTriangleLeftClockWise);
+//									}else{
+//										var testTriangleLeftCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_LEFT_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//										if(testTriangleLeftCounterClockWise != null){
+//											_allTargets.push(testTriangleLeftCounterClockWise);
+//											checkTargetsToDestroy();
+//											GameSignals.GESTURE_DRAW.dispatch(testTriangleLeftCounterClockWise);
+//										}else{
+//											var testTriangleRightClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_RIGHT_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//											if(testTriangleRightClockWise != null){
+//												_allTargets.push(testTriangleRightClockWise);
+//												checkTargetsToDestroy();
+//												GameSignals.GESTURE_DRAW.dispatch(testTriangleRightClockWise);
+//											}else{
+//												var testTriangleRightCounterClockWise:DrawTarget = testTriangle(GestureTypes.TRIANGLE_RIGHT_COUNTER_CLOCKWISE, _triangleMaxError, "triangle_gesture", setTriangleData);
+//												if(testTriangleRightCounterClockWise != null){
+//													_allTargets.push(testTriangleRightCounterClockWise);
+//													checkTargetsToDestroy();
+//													GameSignals.GESTURE_DRAW.dispatch(testTriangleRightCounterClockWise);
+//												}else{
+//													var testRectangleClockWise:DrawTarget = testRectangle(GestureTypes.RECTANGLE_CLOCKWISE, _rectangleMaxError, "rectangle_gesture", setRectangleData);
+//													if(testRectangleClockWise != null){
+//														_allTargets.push(testRectangleClockWise);
+//														checkTargetsToDestroy();
+//														GameSignals.GESTURE_DRAW.dispatch(testRectangleClockWise);
+//													}else{
+//														var testRectangleCounterClockWise:DrawTarget = testRectangle(GestureTypes.RECTANGLE_COUNTER_CLOCKWISE, _rectangleMaxError, "rectangle_gesture", setRectangleData);
+//														if(testRectangleCounterClockWise != null){
+//															_allTargets.push(testRectangleCounterClockWise);
+//															checkTargetsToDestroy();
+//															GameSignals.GESTURE_DRAW.dispatch(testRectangleCounterClockWise);
+//														}
+//													}
+//												}
+//											}
+//										}
+//									}
+//								}
+//							}
+//						}
+//					}
+//				}
 			}
 		}
 		_moves = new Vector.<GestureData>();
 		_triangleBuffer = new Vector.<Point>();
 	}
 
-	private function testRectangle(geometry:Vector.<String>, maxError:uint, textureId:String, dataCallback:Function):DrawTarget {
-		var movesCopy:Vector.<GestureData> = _moves.slice();
-		if(movesCopy.length < 4)
-			return null;
-		var arrMatch:Array = [];
-		for (var i:uint = 0; i < movesCopy.length ; i++){
-			var moveType:String = movesCopy[i].moveType;
-			var iTmp:int = geometry.indexOf(moveType);
-			arrMatch.push(iTmp);
-		}
-
-		var arrLength:uint = arrMatch.length;
-		arrMatch = arrMatch.filter(removeUnset);
-
-		if(arrLength - arrMatch.length > maxError)
-			return null;
-
-		_firstIndexGeometry = arrMatch[0];
-		arrMatch = arrMatch.map(offsetTriangleIndexes);
-
-		if(String(arrMatch.slice(0,4)) == String([0,1,2,3])){
-			var drawTarget:DrawTarget = new DrawTarget(this, textureId);
-			Genome2D.getInstance().root.addChild(drawTarget);
-			drawTarget.setData(dataCallback(movesCopy, geometry));
-			return drawTarget;
-		}
-
-		return null;
-	}
-	private function testTriangle(geometry:Vector.<String>, maxError:uint, textureId:String, dataCallback:Function):DrawTarget {
-		var movesCopy:Vector.<GestureData> = _moves.slice();
-		if(movesCopy.length < 3)
-			return null;
-
-		var arrMatch:Array = [];
-		for (var i:uint = 0; i < movesCopy.length ; i++){
-			var moveType:String = movesCopy[i].moveType;
-			var iTmp:int = geometry.indexOf(moveType);
-			arrMatch.push(iTmp);
-		}
-
-		var arrLength:uint = arrMatch.length;
-		arrMatch = arrMatch.filter(removeUnset);
-
-		if(arrLength - arrMatch.length > maxError)
-			return null;
-
-		_firstIndexGeometry = arrMatch[0];
-		arrMatch = arrMatch.map(offsetTriangleIndexes);
-
-		if(String(arrMatch.slice(0,3)) == String([0,1,2])){
-			var drawTarget:DrawTarget = new DrawTarget(this, textureId);
-			Genome2D.getInstance().root.addChild(drawTarget);
-			drawTarget.setData(dataCallback(movesCopy, geometry));
-			return drawTarget;
-		}
-		return null;
-	}
+//	private function testRectangle(geometry:Vector.<String>, maxError:uint, textureId:String, dataCallback:Function):DrawTarget {
+//		var movesCopy:Vector.<GestureData> = _moves.slice();
+//		if(movesCopy.length < 4)
+//			return null;
+//		var arrMatch:Array = [];
+//		for (var i:uint = 0; i < movesCopy.length ; i++){
+//			var moveType:String = movesCopy[i].moveType;
+//			var iTmp:int = geometry.indexOf(moveType);
+//			arrMatch.push(iTmp);
+//		}
+//
+//		var arrLength:uint = arrMatch.length;
+//		arrMatch = arrMatch.filter(removeUnset);
+//
+//		if(arrLength - arrMatch.length > maxError)
+//			return null;
+//
+//		_firstIndexGeometry = arrMatch[0];
+//		arrMatch = arrMatch.map(offsetTriangleIndexes);
+//
+//		if(String(arrMatch.slice(0,4)) == String([0,1,2,3])){
+//			var drawTarget:DrawTarget = new DrawTarget(this, textureId);
+//			Genome2D.getInstance().root.addChild(drawTarget);
+//			drawTarget.setData(dataCallback(movesCopy, geometry));
+//			return drawTarget;
+//		}
+//
+//		return null;
+//	}
+//	private function testTriangle(geometry:Vector.<String>, maxError:uint, textureId:String, dataCallback:Function):DrawTarget {
+//		var movesCopy:Vector.<GestureData> = _moves.slice();
+//		if(movesCopy.length < 3)
+//			return null;
+//
+//		var arrMatch:Array = [];
+//		for (var i:uint = 0; i < movesCopy.length ; i++){
+//			var moveType:String = movesCopy[i].moveType;
+//			var iTmp:int = geometry.indexOf(moveType);
+//			arrMatch.push(iTmp);
+//		}
+//
+//		var arrLength:uint = arrMatch.length;
+//		arrMatch = arrMatch.filter(removeUnset);
+//
+//		if(arrLength - arrMatch.length > maxError)
+//			return null;
+//
+//		_firstIndexGeometry = arrMatch[0];
+//		arrMatch = arrMatch.map(offsetTriangleIndexes);
+//
+//		if(String(arrMatch.slice(0,3)) == String([0,1,2])){
+//			var drawTarget:DrawTarget = new DrawTarget(this, textureId);
+//			Genome2D.getInstance().root.addChild(drawTarget);
+//			drawTarget.setData(dataCallback(movesCopy, geometry));
+//			return drawTarget;
+//		}
+//		return null;
+//	}
 
 	private function offsetTriangleIndexes(item:int, index:int, array:Array):uint{
 		item -= _firstIndexGeometry;
@@ -405,6 +408,11 @@ public class GestureController {
 				var drawTarget:DrawTarget = new DrawTarget(this, textureId);
 				Genome2D.getInstance().root.addChild(drawTarget);
 				drawTarget.setData(dataCallback(movesCopy, geometry));
+				trace(_tutStep1Position)
+				if(_tutStep1Position != null)
+					drawTarget.data.explosionTime = 3;
+				else
+					drawTarget.data.explosionTime = Main.CURRENT_LEVEL.gestureExplosionSpeedMilli;
 				return drawTarget;
 			}
 		}
@@ -412,33 +420,33 @@ public class GestureController {
 		return null;
 	}
 
-	private function setRectangleData(movesTmp:Vector.<GestureData>, geometry:Vector.<String>):IGeometryData{
-		_triangleBuffer = _triangleBuffer.sort(sortPointOnMostLeftPoint);
-		var width:Number = _triangleBuffer[_triangleBuffer.length - 1].x - _triangleBuffer[0].x;
-		var xPos:Number = _triangleBuffer[0].x;
+//	private function setRectangleData(movesTmp:Vector.<GestureData>, geometry:Vector.<String>):IGeometryData{
+//		_triangleBuffer = _triangleBuffer.sort(sortPointOnMostLeftPoint);
+//		var width:Number = _triangleBuffer[_triangleBuffer.length - 1].x - _triangleBuffer[0].x;
+//		var xPos:Number = _triangleBuffer[0].x;
+//
+//		_triangleBuffer = _triangleBuffer.sort(sortPointOnLowestPoint);
+//		var height:Number = _triangleBuffer[_triangleBuffer.length - 1].y - _triangleBuffer[0].y;
+//		var yPos:Number = _triangleBuffer[0].y;
+//		var data:RectangleData = new RectangleData(new Rectangle(xPos, yPos, width, height));
+//		return data;
+//	}
+//
+//	private function setTriangleData(movesTmp:Vector.<GestureData>, geometry:Vector.<String>):IGeometryData{
+//
+//		_triangleBuffer = _triangleBuffer.sort(sortPointOnMostLeftPoint);
+//		var width:Number = _triangleBuffer[_triangleBuffer.length - 1].x - _triangleBuffer[0].x;
+//		var xPos:Number = _triangleBuffer[0].x + (width / 2);
+//
+//		_triangleBuffer = _triangleBuffer.sort(sortPointOnLowestPoint);
+//		var height:Number = _triangleBuffer[_triangleBuffer.length - 1].y - _triangleBuffer[0].y;
+//		var yPos:Number = _triangleBuffer[0].y + (height / 2);
+//
+//		var data:TriangleData = new TriangleData(xPos, yPos, width, height, geometry);
+//		return data;
+//	}
 
-		_triangleBuffer = _triangleBuffer.sort(sortPointOnLowestPoint);
-		var height:Number = _triangleBuffer[_triangleBuffer.length - 1].y - _triangleBuffer[0].y;
-		var yPos:Number = _triangleBuffer[0].y;
-		var data:RectangleData = new RectangleData(new Rectangle(xPos, yPos, width, height));
-		return data;
-	}
-
-	private function setTriangleData(movesTmp:Vector.<GestureData>, geometry:Vector.<String>):IGeometryData{
-
-		_triangleBuffer = _triangleBuffer.sort(sortPointOnMostLeftPoint);
-		var width:Number = _triangleBuffer[_triangleBuffer.length - 1].x - _triangleBuffer[0].x;
-		var xPos:Number = _triangleBuffer[0].x + (width / 2);
-
-		_triangleBuffer = _triangleBuffer.sort(sortPointOnLowestPoint);
-		var height:Number = _triangleBuffer[_triangleBuffer.length - 1].y - _triangleBuffer[0].y;
-		var yPos:Number = _triangleBuffer[0].y + (height / 2);
-
-		var data:TriangleData = new TriangleData(xPos, yPos, width, height, geometry);
-		return data;
-	}
-
-	private function setEllipseData(movesTmp:Vector.<GestureData>, geometry:Vector.<String>):IGeometryData{
+	private function setEllipseData(movesTmp:Vector.<GestureData>, geometry:Vector.<String>):EllipseData{
 		movesTmp = movesTmp.sort(sortOnMostLeftPoint);
 		var xRadius:Number = (movesTmp[movesTmp.length - 1].position.x - movesTmp[0].position.x) / 2;
 		var xPos:Number = movesTmp[0].position.x;

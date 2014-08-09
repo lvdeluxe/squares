@@ -9,14 +9,19 @@ package {
 import com.genome2d.Genome2D;
 import com.genome2d.context.GContextConfig;
 import com.genome2d.context.stats.GStats;
+import com.greensock.plugins.RoundPropsPlugin;
+import com.greensock.plugins.TweenPlugin;
 
-import deluxe.AdManager;
-import deluxe.AssetsManager;
+import deluxe.AssetsHDManager;
+import deluxe.mobile.AdManager;
+import deluxe.AssetsSDManager;
+import deluxe.mobile.GameCenterManager;
 import deluxe.GameData;
 import deluxe.GameSignals;
-import deluxe.Level;
+import deluxe.level.Level;
 import deluxe.Localization;
 import deluxe.SoundsManager;
+import deluxe.level.UserLevelData;
 import deluxe.squares.ScoreData;
 import deluxe.squares.SquaresManager;
 import deluxe.ui.GameHUD;
@@ -47,14 +52,16 @@ import flash.net.SharedObject;
 import flash.system.Capabilities;
 import flash.system.System;
 import flash.utils.ByteArray;
-
-import net.onthewings.stk.Flute;
+import flash.utils.setTimeout;
 
 [SWF(width='960', height='640', backgroundColor='#000000', frameRate='60')]
 public class Main extends Sprite{
 
-	[Embed(source="/assets/ui/splash.jpg")]
-	private static const Splash:Class;
+
+	[Embed(source="/assets/data/levels.json", mimeType='application/octet-stream')]
+	public static const Levels:Class;
+	[Embed(source="/assets/data/gamecenter.json", mimeType='application/octet-stream')]
+	public static const GameCenterData:Class;
 
 	private var _gestureController:GestureController;
 	private var _squaresManager:SquaresManager;
@@ -70,10 +77,17 @@ public class Main extends Sprite{
 	private var _gameHUD:GameHUD;
 	private var _levels:Vector.<Level> = new Vector.<Level>();
 	public static var CURRENT_LEVEL:Level;
-	private var _unlockedLevels:Array = [];
 	private var _levelStarted:Boolean = false;
-	private var _levelId:uint = 0;
+	private var _levelId:uint = 23;
 	private var _localData:SharedObject;
+	private var _userLevelData:Vector.<UserLevelData> = new Vector.<UserLevelData>();
+	private var _numLevels:uint = 24;
+	private var _postAchievementId:uint;
+	private var _tutorialComplete:Boolean;
+
+	private var _gameCenter:GameCenterManager;
+
+	private var _isPlaying:Boolean = false;
 
 	DEPLOY::DEVICE{
 		private var _adManager:AdManager;
@@ -84,9 +98,12 @@ public class Main extends Sprite{
 	private var _splash:Bitmap;
 
 	public function Main() {
+
+		TweenPlugin.activate([RoundPropsPlugin]);
 		stage.scaleMode = StageScaleMode.NO_SCALE;
 		stage.align = StageAlign.TOP_LEFT;
 		stage.addEventListener(Event.DEACTIVATE, deactivate);
+		stage.addEventListener(Event.ACTIVATE, activate);
 		GameData.STAGE_HEIGHT = stage.fullScreenHeight;
 		GameData.STAGE_WIDTH = stage.fullScreenWidth;
 		setSplashScreen();
@@ -96,7 +113,12 @@ public class Main extends Sprite{
 	}
 
 	private function setSplashScreen():void {
-		_splash = new Splash();
+		if(GameData.STAGE_WIDTH == 2048){
+			_splash = new AssetsHDManager.Splash();
+		}else{
+			_splash = new AssetsSDManager.Splash();
+		}
+
 		addChild(_splash);
 		_splash.x = -(_splash.width - GameData.STAGE_WIDTH) / 2;
 		_splash.y = -(_splash.height - GameData.STAGE_HEIGHT) / 2;
@@ -106,18 +128,35 @@ public class Main extends Sprite{
 		_localData = SharedObject.getLocal("squared_data");
 
 		var isNewUser:Boolean = true;
+		var levelData:UserLevelData;
 		for(var prop:String in _localData.data){
 			SoundsManager.playLoops = _localData.data.playLoop;
 			SoundsManager.playSfx = _localData.data.playSfx;
-			_unlockedLevels = _localData.data.unlockedLevels;
+			_tutorialComplete = _localData.data.tutorialComplete;
+			for(var i:uint = 0 ; i < _numLevels ; i++){
+				levelData = new UserLevelData();
+				levelData.id = i;
+				levelData.locked = _localData.data.levelData[i].locked;
+				levelData.bestScore = _localData.data.levelData[i].bestScore;
+				levelData.achievementComplete = _localData.data.levelData[i].achievementComplete;
+				_userLevelData.push(levelData);
+			}
 			isNewUser = false;
 		}
 		if(isNewUser){
-			_localData.data.unlockedLevels = [0];
 			_localData.data.playLoop = true;
 			_localData.data.playSfx = true;
+			_localData.data.tutorialComplete = false;
+			for(var j:uint = 0 ; j < _numLevels ; j++){
+				levelData = new UserLevelData();
+				levelData.id = j;
+				levelData.locked = j != 0;
+				levelData.bestScore = 0;
+				levelData.achievementComplete = false;
+				_userLevelData.push(levelData);
+			}
+			_localData.data.levelData = _userLevelData;
 			_localData.flush();
-			_unlockedLevels = [0];
 		}
 		switch(Capabilities.language){
 			case "fr":
@@ -128,20 +167,35 @@ public class Main extends Sprite{
 				break;
 		}
 
+		_gameCenter = new GameCenterManager(onGameCenterCallback);
+	}
+
+	private function onGameCenterCallback(pAuthenticated:Boolean):void{
 
 		var config:GContextConfig = new GContextConfig(new Rectangle(0,0,GameData.STAGE_WIDTH,GameData.STAGE_HEIGHT), stage);
-		GStats.visible = true;
+		GStats.visible = false;
 		_genome = Genome2D.getInstance();
 		_genome.onInitialized.addOnce(onContext);
 		_genome.init(config);
 	}
 
 	private function onContext():void {
+		_gameCenter.checkForAchievements(_userLevelData);
 		parseLevels();
 		DEPLOY::DEVICE{
 			_adManager = new AdManager();
 		}
-		new AssetsManager();
+		if(GameData.STAGE_WIDTH == 2048){
+			new AssetsHDManager();
+		}else{
+			new AssetsSDManager();
+		}
+
+		AssetsSDManager.nullify();
+		AssetsHDManager.nullify();
+
+		System.gc();
+
 		SoundsManager.init();
 		GameSignals.GAME_START.add(onGameStart);
 		GameSignals.GAME_PAUSE.add(onGamePause);
@@ -153,27 +207,52 @@ public class Main extends Sprite{
 		GameSignals.RESTART_LEVEL.add(onRestartLevel);
 		GameSignals.AD_COMPLETE.add(onAdComplete);
 		GameSignals.OPTIONS_MENU.add(onOptionsMenu);
-		GameSignals.CHANGE_LANG.add(onChangeLang);
-		GameSignals.CHANGE_MUSIC.add(onChangeSound);
-		GameSignals.CHANGE_SFX.add(onChangeSfx);
+		GameSignals.UPDATE_LANG.add(onChangeLang);
+		GameSignals.UPDATE_MUSIC.add(onChangeMusic);
+		GameSignals.UPDATE_SFX.add(onChangeSfx);
 		GameSignals.BACK_TO_SELECT.add(onBackToSelect);
 		GameSignals.TUTORIAL_COMPLETE.add(onTutorialComplete);
+		GameSignals.SHOW_LEADERBOARD.add(onShowLeaderboard);
+		GameSignals.SHOW_ACHIEVEMENTS.add(onShowAchievements);
 		_gameHUD = new GameHUD();
 		_genome.root.addChild(_gameHUD);
 		_gameHUD.setActive(false);
 		_gestureController = new GestureController(stage);
 		_squaresManager = new SquaresManager(_gameHUD);
+
+		removeChild(_splash);
 		_mainMenu = new MainMenu();
 		_mainMenu.startAnimation();
 		_genome.root.addChild(_mainMenu);
 		_genome.onPreRender.add(render);
-		removeChild(_splash);
-//		saveScore();
+//		saveScore(new ScoreData());
+//
+//		var savedScores:File = File.documentsDirectory.resolvePath("scores.txt");
+//		var stream:FileStream = new FileStream();
+//		stream.open(savedScores, FileMode.UPDATE);
+//		//trace(stream.readObject())
+//		var scoreData:Object = stream.readObject();
+////		if(stream.bytesAvailable != 0){
+////			scoreData = stream.readObject();
+////			trace(scoreData.score);
+////		}
+//		for(var prop:* in scoreData)
+//			trace(prop, scoreData[prop].score);
+	}
+
+	private function onShowAchievements():void {
+		_gameCenter.showAchievements();
+	}
+	private function onShowLeaderboard(lvl:int = -1):void {
+		_gameCenter.showLeaderboard(lvl);
 	}
 
 	private function onTutorialComplete():void {
 		_genome.root.removeChild(_tutorial);
 		_tutorial = null;
+		_tutorialComplete = true;
+		_localData.data.tutorialComplete = true;
+		_localData.flush();
 	}
 
 
@@ -182,7 +261,7 @@ public class Main extends Sprite{
 		_localData.flush();
 		SoundsManager.playSfx = playSfx == 0;
 	}
-	private function onChangeSound(playLoop:uint):void {
+	private function onChangeMusic(playLoop:uint):void {
 		_localData.data.playLoop = playLoop == 0;
 		_localData.flush();
 		SoundsManager.mute(playLoop == 1);
@@ -203,7 +282,7 @@ public class Main extends Sprite{
 	private function onBackToSelect():void {
 		_genome.root.removeChild(_levelDesc);
 		_levelDesc = null;
-		_levelSelection = new LevelSelection(_levels);
+		_levelSelection = new LevelSelection(_userLevelData);
 		_genome.root.addChild(_levelSelection);
 	}
 	private function onOptionsMenu():void {
@@ -224,6 +303,7 @@ public class Main extends Sprite{
 					mainMenu();
 					break;
 			}
+			_onAdExit = "";
 		}
 	}
 
@@ -262,27 +342,53 @@ public class Main extends Sprite{
 		}
 	}
 
-	private function saveLevelUnlocked():void{
-		_levelId++;
-		_levels[_levelId].unlocked = true;
-		if(_unlockedLevels.indexOf(_levelId) == -1){
-			_unlockedLevels.push(_levelId);
-			_localData.data.unlockedLevels = _unlockedLevels;
-			_localData.flush();
+	private function saveLevelUnlocked(pScore:uint):String{
+		var type:String = GameWonPopup.DEFAULT;
+		var prevScore:uint = _userLevelData[_levelId].bestScore;
+		_userLevelData[_levelId].bestScore = Math.max(prevScore, pScore);
+		if(pScore > prevScore && prevScore != 0){
+			_gameCenter.postLeaderboard(_levelId, pScore, onLeaderboardComplete);
+			type = GameWonPopup.HIGH_SCORE;
+		}
+		if(_userLevelData[_levelId].bestScore > CURRENT_LEVEL.devscore && !_userLevelData[_levelId].achievementComplete){
+			_postAchievementId = _levelId;
+			_gameCenter.postAchievement(_levelId, onAchievementComplete);
+			_userLevelData[_postAchievementId].achievementComplete = true;
+			_localData.data.levelData = _userLevelData;
+			type = GameWonPopup.ACHIEVEMENT;
+		}
+		if(_levelId < _userLevelData.length - 1){
+			_levelId++;
+			_userLevelData[_levelId].locked = false;
+		}
+		_localData.data.levelData = _userLevelData;
+		_localData.flush();
+		return type;
+	}
+
+	private function onLeaderboardComplete(pSuccess:Boolean):void{
+		if(pSuccess){
+
+		}
+	}
+	private function onAchievementComplete(pSuccess:Boolean):void{
+		if(pSuccess){
+
 		}
 	}
 
 	private function onGameOver(success:Boolean, pScoreData:ScoreData = null):void{
+		_isPlaying = false;
+		SoundsManager.stopLooper();
 		if(success){
-			_gameWonPopup = new GameWonPopup(pScoreData);
+			_gameWonPopup = new GameWonPopup(pScoreData, saveLevelUnlocked(pScoreData.getTotalScore()));
 			_genome.root.addChild(_gameWonPopup);
-			saveLevelUnlocked();
 			SoundsManager.playGameWonLoop();
-			DEPLOY::DEVICE{
-				saveScore(pScoreData);
-			}
+//			DEPLOY::DEVICE{
+//				saveScore(pScoreData);
+//			}
 		}else{
-			_gameLostPopup = new GameLostPopup();
+			_gameLostPopup = new GameLostPopup(pScoreData);
 			_genome.root.addChild(_gameLostPopup);
 			SoundsManager.playGameLostLoop();
 		}
@@ -290,34 +396,34 @@ public class Main extends Sprite{
 		_gestureController.setGameOverState();
 	}
 
-	private function saveScore(pScoreData:ScoreData):void {
-		var currentScore:uint = pScoreData.getTotalScore();
-		var savedScores:File = File.documentsDirectory.resolvePath("scores.txt");
-		var stream:FileStream = new FileStream();
-		stream.open(savedScores, FileMode.UPDATE);
-		var scores:Object;
-		var id:String = CURRENT_LEVEL.levelIndex.toString();
-		if(stream.bytesAvailable != 0){
-			scores = stream.readObject();
-			var scoreData:Object = scores[id];
-			if(scoreData != null){
-				if(scoreData.score < currentScore){
-					scoreData.score = currentScore;
-				}
-			}else{
-				scores[id] = {score:currentScore};
-			}
-		}else{
-			scores = {};
-			scores[id] = {score:currentScore};
-		}
+//	private function saveScore(pScoreData:ScoreData):void {
+//		var currentScore:uint = pScoreData.getTotalScore();
+//		var savedScores:File = File.documentsDirectory.resolvePath("scores.txt");
+//		var stream:FileStream = new FileStream();
+//		stream.open(savedScores, FileMode.UPDATE);
+//		var scores:Object;
+//		var id:String = CURRENT_LEVEL.levelIndex.toString();
+//		if(stream.bytesAvailable != 0){
+//			scores = stream.readObject();
+//			var scoreData:Object = scores[id];
+//			if(scoreData != null){
+//				if(scoreData.score < currentScore){
+//					scoreData.score = currentScore;
+//				}
+//			}else{
+//				scores[id] = {score:currentScore};
+//			}
+//		}else{
+//			scores = {};
+//			scores[id] = {score:currentScore};
+//		}
 //		for(var prop:* in scores)
 //			trace(prop, scores[prop].score);
-		stream.position = 0;
-		stream.truncate();
-		stream.writeObject(scores);
-		stream.close();
-	}
+//		stream.position = 0;
+//		stream.truncate();
+//		stream.writeObject(scores);
+//		stream.close();
+//	}
 
 	private function mainMenu():void{
 		_mainMenu = new MainMenu();
@@ -370,13 +476,14 @@ public class Main extends Sprite{
 	}
 
 	private function onLevelSelected(levelId:uint, adClicked:Boolean = false):void{
+		_isPlaying = true;
 		_levelId = levelId;
 		CURRENT_LEVEL = _levels[_levelId];
 		if(_levelSelection)
 			_genome.root.removeChild(_levelSelection);
 		_levelSelection = null;
 		if(CURRENT_LEVEL.description != ""){
-			_levelDesc = new LevelDescription(CURRENT_LEVEL);
+			_levelDesc = new LevelDescription();
 			_genome.root.addChild(_levelDesc);
 		}else{
 			onLevelStart();
@@ -390,12 +497,12 @@ public class Main extends Sprite{
 	}
 
 	private function parseLevels():void {
-		var levels:Object = JSON.parse(new AssetsManager.Levels());
+		var levels:Object = JSON.parse(new Levels());
 		for(var i:uint = 0 ; i < levels.levels.length; i++){
 			var level:Level = new Level();
-			if(i < _unlockedLevels.length)
-				level.unlocked = true;
+			level.unlocked = !_userLevelData[i].locked;
 			level.levelIndex = i;
+			level.devscore = levels.levels[i].devscore;
 			level.name = levels.levels[i].name;
 			level.description = levels.levels[i].description;
 			level.squaresSpeed = levels.levels[i].squaresSpeed;
@@ -411,6 +518,7 @@ public class Main extends Sprite{
 
 	private function onGamePause(paused:Boolean, showPopup:Boolean = true):void{
 		if(paused){
+			_isPlaying = false;
 			if(showPopup){
 				_pausePopup = new PausePopup();
 				_genome.root.addChild(_pausePopup);
@@ -418,6 +526,7 @@ public class Main extends Sprite{
 			_squaresManager.pause();
 			_gestureController.pause();
 		}else{
+			_isPlaying = true;
 			if(showPopup){
 				_genome.root.removeChild(_pausePopup);
 				_pausePopup  = null;
@@ -431,7 +540,7 @@ public class Main extends Sprite{
 
 		_genome.root.removeChild(_mainMenu);
 		_mainMenu = null;
-		_levelSelection = new LevelSelection(_levels);
+		_levelSelection = new LevelSelection(_userLevelData);
 		_genome.root.addChild(_levelSelection);
 
 	}
@@ -454,7 +563,7 @@ public class Main extends Sprite{
 		_squaresManager.startLevel();
 		_gestureController.startLevel();
 
-		if(CURRENT_LEVEL.levelIndex == 0){
+		if(CURRENT_LEVEL.levelIndex == 0 && !_tutorialComplete){
 			_tutorial = new Tutorial();
 			_genome.root.addChild(_tutorial);
 		}
@@ -467,10 +576,17 @@ public class Main extends Sprite{
 			_squaresManager.update();
 	}
 
+	private function activate(e:Event):void
+	{
+		SoundsManager.resumeAllSounds();
+	}
+
 	private function deactivate(e:Event):void
 	{
-		// make sure the app behaves well (or exits) when in background
-		//NativeApplication.nativeApplication.exit();
+		if(_isPlaying){
+			GameSignals.GAME_PAUSE.dispatch(true);
+		}
+		SoundsManager.pauseAllSounds();
 	}
 }
 }

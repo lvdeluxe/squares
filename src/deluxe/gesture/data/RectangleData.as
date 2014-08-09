@@ -21,6 +21,10 @@ public class RectangleData implements IGeometryData{
 		_maxRadius = Math.sqrt((((_width / 2) * (_width / 2)) + ((_height / 2) * (_height / 2))));
 	}
 
+	public function updateTime(dt:Number):void{
+
+	}
+
 	public function get position():Point {
 		return _position;
 	}

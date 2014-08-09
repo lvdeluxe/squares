@@ -8,6 +8,7 @@
 package deluxe.gesture {
 import com.genome2d.Genome2D;
 import com.genome2d.components.renderables.GSprite;
+import com.genome2d.components.renderables.particles.GSimpleParticleSystem;
 import com.genome2d.context.GBlendMode;
 import com.genome2d.context.filters.GDesaturateFilter;
 import com.genome2d.context.filters.GFilter;
@@ -18,9 +19,11 @@ import com.genome2d.signals.GNodeMouseSignal;
 import deluxe.ExtendedTimer;
 import deluxe.GameData;
 import deluxe.GameSignals;
+import deluxe.gesture.data.EllipseData;
 import deluxe.gesture.data.IGeometryData;
 import deluxe.gesture.data.TriangleData;
-import deluxe.particles.ExplodeParticles;
+import deluxe.particles.hd.HDExplodeParticles;
+import deluxe.particles.sd.SDExplodeParticles;
 
 import flash.events.TimerEvent;
 import flash.filters.BlurFilter;
@@ -29,16 +32,21 @@ public class DrawTarget extends GNode{
 
 	private static var INC:uint = 0;
 	private var _timer:ExtendedTimer;
-	public var data:IGeometryData;
+	public var data:EllipseData;
 	private var _name:String;
 	public var toBeDestoyed:Boolean = false;
 	private var _controller:GestureController;
 	private var _textureSize:uint = 128;
+	private var _explodeParticleClass:Class;
 
 	public function DrawTarget(controller:GestureController, pTextureId:String) {
+		if(GameData.STAGE_WIDTH == 2048)
+			_explodeParticleClass = HDExplodeParticles;
+		else
+			_explodeParticleClass = SDExplodeParticles;
 		var gSprite:GSprite = addComponent(GSprite) as GSprite;
 		gSprite.textureId = pTextureId;
-		gSprite.node.transform.alpha = 0.5;
+//		gSprite.node.transform.alpha = 0.5;
 		gSprite.blendMode = GBlendMode.ADD;
 		_textureSize = gSprite.getBounds().width;
 		_controller = controller;
@@ -66,7 +74,7 @@ public class DrawTarget extends GNode{
 		_timer.removeEventListener(TimerEvent.TIMER_COMPLETE, onEllipseExplode);
 		onMouseMove.remove(onMove);
 		parent.removeChild(this);
-		var particles:ExplodeParticles = GNodeFactory.createNodeWithComponent(ExplodeParticles) as ExplodeParticles;
+		var particles:GSimpleParticleSystem = GNodeFactory.createNodeWithComponent(_explodeParticleClass) as GSimpleParticleSystem;
 		particles.node.transform.setPosition(data.position.x, data.position.y);
 		Genome2D.getInstance().root.addChild(particles.node);
 	}
@@ -100,7 +108,7 @@ public class DrawTarget extends GNode{
 			transform.setScale(data.width / _textureSize, data.height / _textureSize);
 	}
 
-	public function setData(pData:IGeometryData):void{
+	public function setData(pData:EllipseData):void{
 		data = pData;
 		_timer.start();
 		drawShape();

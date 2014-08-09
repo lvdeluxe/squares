@@ -11,7 +11,7 @@ import com.genome2d.signals.GNodeMouseSignal;
 
 import deluxe.GameData;
 import deluxe.GameSignals;
-import deluxe.Level;
+import deluxe.level.Level;
 import deluxe.Localization;
 
 import flash.system.System;
@@ -21,14 +21,14 @@ public class LevelDescription extends ScreenBase{
 	private var _startBtn:GButton;
 	private var _backBtn:GButton;
 
-	public function LevelDescription(level:Level) {
-		super(Localization.getString("LEVEL_ID")+ "   " + (level.levelIndex + 1).toString());
+	public function LevelDescription() {
+		super(Localization.getString("LEVEL_ID")+ "   " + (Main.CURRENT_LEVEL.levelIndex + 1).toString());
 		this.onRemovedFromStage.add(onRemove);
 
 
 		var ids:Array = ["LEVEL_OBJ_ID","LEVEL_GAMEOVER_ID","LEVEL_HIGHSCORE_ID"];
-		var yStart:Number = (GameData.STAGE_HEIGHT / 2) - ((ids.length * 24) / 2);
-		var replace:Array = [{"numSquaresToCatch":Main.CURRENT_LEVEL.numSquaresToCatch}, {"squaresGameOver":Main.CURRENT_LEVEL.squaresGameOver}, {"highscore":3700}];
+		var yStart:Number = (GameData.STAGE_HEIGHT / 2) - ((ids.length * 24 * GameData.RESOLUTION_FACTOR) / 2);
+		var replace:Array = [{"numSquaresToCatch":Main.CURRENT_LEVEL.numSquaresToCatch}, {"squaresGameOver":Main.CURRENT_LEVEL.squaresGameOver}, {"highscore":Main.CURRENT_LEVEL.devscore}];
 		for(var i:uint = 0 ; i < 3 ; i++){
 			var line:String = Localization.getString(ids[i], replace[i]);
 			var desc:GTextureText = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
@@ -41,7 +41,7 @@ public class LevelDescription extends ScreenBase{
 
 			if(i == 2){
 				var pts:GTextureText = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-				pts.textureAtlasId = "KubusScore";
+				pts.textureAtlasId = "Kubus12";
 				pts.text = Localization.getString("POINTS_ID");
 				pts.align = GTextureTextAlignType.MIDDLE;
 				pts.tracking = -2;
@@ -55,7 +55,7 @@ public class LevelDescription extends ScreenBase{
 				addChild(pts.node);
 			}
 
-			yStart += 24;
+			yStart += 24 * GameData.RESOLUTION_FACTOR;
 			if(desc.width % 2 != 0){
 				desc.node.transform.x += 0.5;
 			}
@@ -64,12 +64,12 @@ public class LevelDescription extends ScreenBase{
 			}
 		}
 
-		_startBtn = new GButton("btnBackground", Localization.getString("START_LEVEL_ID"), "Kubus");
+		_startBtn = new GButton("btnBackground", Localization.getString("START_LEVEL_ID"), "Kubus36");
 		_startBtn.onMouseClick.add(onClickStart);
 		_startBtn.transform.setPosition(int((GameData.STAGE_WIDTH / 2) + (_startBtn.width / 2 * 1.15)), GameData.STAGE_HEIGHT * 0.85);
 		addChild(_startBtn);
 
-		_backBtn = new GButton("btnBackground", Localization.getString("BACK_ID"), "Kubus");
+		_backBtn = new GButton("btnBackground", Localization.getString("BACK_ID"), "Kubus36");
 		_backBtn.onMouseClick.add(onClickBack);
 		_backBtn.transform.setPosition(int((GameData.STAGE_WIDTH / 2) - (_backBtn.width / 2 * 1.15)), GameData.STAGE_HEIGHT * 0.85);
 		addChild(_backBtn);

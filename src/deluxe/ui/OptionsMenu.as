@@ -23,15 +23,15 @@ public class OptionsMenu extends ScreenBase{
 		this.onRemovedFromStage.add(onRemove);
 		GameSignals.LANG_CHANGED.add(onLangChanged);
 
-		_langGroup = new GSelection("LANG_SELECT_ID", "FRENCH_ID", "ENGLISH_ID", Localization.CURENT_LANG == Localization.FRENCH ? 0 : 1, GameSignals.CHANGE_LANG);
+		_langGroup = new GSelection("LANG_SELECT_ID", "FRENCH_ID", "ENGLISH_ID", Localization.CURENT_LANG == Localization.FRENCH ? 0 : 1, GameSignals.UPDATE_LANG);
 		_langGroup.transform.setPosition(int(GameData.STAGE_WIDTH / 4),int(GameData.STAGE_HEIGHT / 3));
 		addChild(_langGroup);
 
-		_musicGroup = new GSelection("LOOP_SELECT_ID", "ON_ID", "OFF_ID", SoundsManager.playLoops ? 0 : 1, GameSignals.CHANGE_MUSIC);
+		_musicGroup = new GSelection("LOOP_SELECT_ID", "ON_ID", "OFF_ID", SoundsManager.playLoops ? 0 : 1, GameSignals.UPDATE_MUSIC);
 		_musicGroup.transform.setPosition(int(GameData.STAGE_WIDTH / 2),int(GameData.STAGE_HEIGHT / 3));
 		addChild(_musicGroup);
 
-		_sfxGroup = new GSelection("SFX_SELECT_ID", "ON_ID", "OFF_ID", SoundsManager.playSfx ? 0 : 1, GameSignals.CHANGE_SFX);
+		_sfxGroup = new GSelection("SFX_SELECT_ID", "ON_ID", "OFF_ID", SoundsManager.playSfx ? 0 : 1, GameSignals.UPDATE_SFX);
 		_sfxGroup.transform.setPosition(int(GameData.STAGE_WIDTH * 3 / 4),int(GameData.STAGE_HEIGHT / 3));
 		addChild(_sfxGroup);
 

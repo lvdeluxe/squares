@@ -8,18 +8,21 @@ import com.genome2d.components.renderables.GTextureTextAlignType;
 import com.genome2d.node.GNode;
 import com.genome2d.node.factory.GNodeFactory;
 
+import deluxe.GameData;
+
 import flash.geom.Point;
 
 public class TutorialText extends GNode{
 
 	private var _tf:GTextureText;
+	private var _maxWidth:uint;
 
 
 	public function TutorialText(txt:String, pos:Point) {
 		transform.setPosition(pos.x, pos.y);
 		var lines:Array = txt.split("\n");
 		var linesNodes:Array = [];
-		var yStart:Number = -(lines.length * 24 / 2) + 12;
+		var yStart:Number = -(lines.length * 24 / 2 * GameData.RESOLUTION_FACTOR) + 12 * (GameData.RESOLUTION_FACTOR);
 		var maxWidth:Number = 0;
 		for(var i:uint = 0 ; i < lines.length ; i++){
 			var desc:GTextureText = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
@@ -35,11 +38,11 @@ public class TutorialText extends GNode{
 				desc.node.transform.y += 0.5;
 			}
 			maxWidth = Math.max(maxWidth, desc.width);
-			yStart += 24;
+			yStart += 24 * GameData.RESOLUTION_FACTOR;
 			linesNodes.push(desc);
 		}
-
-		var w:uint = uint(lines.length * 24 * 1.3);
+		_maxWidth = uint(maxWidth);
+		var w:uint = uint(lines.length * 24 * GameData.RESOLUTION_FACTOR * 1.3);
 		if(w%2 != 0)
 			w += 1;
 		var h:uint = uint(maxWidth * 1.1);
@@ -91,6 +94,13 @@ public class TutorialText extends GNode{
 		addChild(right_side.node);
 
 		addChild(container);
+	}
+
+	public function positionFromHand(pX:Number, pPos:String):void {
+		if(pPos == "left")
+			transform.x = int(pX + ((_maxWidth / 2) * 1.4));
+		else if(pPos == "right")
+			transform.x = int(pX - ((_maxWidth / 2) * 1.4));
 	}
 }
 }

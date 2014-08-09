@@ -12,5 +12,6 @@ public interface IGeometryData {
 	function get position():Point;
 	function get maxRadius():Number;
 	function get bounds():Rectangle;
+	function updateTime(dt:Number):void;
 }
 }

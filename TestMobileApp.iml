@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="TestMobileApp">
+  <component name="FlexBuildConfigurationManager" active="QuadratureApp">
     <configurations>
-      <configuration name="TestMobileApp" target-platform="Mobile" pure-as="true" main-class="Main" output-file="TestMobileApp.swf" output-folder="$MODULE_DIR$/out/production/TestMobileApp">
+      <configuration name="QuadratureApp" target-platform="Mobile" pure-as="true" main-class="Main" output-file="QuadratureApp.swf" output-folder="$MODULE_DIR$/out/production/QuadratureApp">
         <dependencies>
           <entries>
             <entry library-name="lib" library-level="project">
@@ -11,28 +11,43 @@
             <entry library-id="0958483d-d290-442a-97c8-32b7186e0ce2">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="c3ac758f-e686-40ad-8ea7-89ecca66cf23">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="sdk (1)" />
+          <sdk name="AIRSDK_13" />
         </dependencies>
         <compiler-options>
           <map>
             <entry key="compiler.debug.swf" value="false" />
           </map>
+          <option name="resourceFilesMode" value="None" />
           <option name="additionalOptions" value="-define=DEPLOY::DEVICE,true -define=DEPLOY::EMUL,false" />
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android package-file-name="TestMobileApp" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/TestMobileApp-app.xml" package-file-name="TestMobileApp">
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/QuadratureApp-app.xml" package-file-name="Quadrature">
           <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_29.png" path-in-package="Icon_29.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_57.png" path-in-package="Icon_57.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_72.png" path-in-package="Icon_72.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_1024.png" path-in-package="appicon_1024.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_114.png" path-in-package="appicon_114.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_144.png" path-in-package="appicon_144.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_512.png" path-in-package="appicon_512.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_57.png" path-in-package="appicon_57.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_72.png" path-in-package="appicon_72.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/splash/Default-568h@2x~iphone.png" path-in-package="Default-568h@2x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/splash/Default-Landscape@2x~ipad.png" path-in-package="Default-Landscape@2x~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/splash/Default-Landscape~ipad.png" path-in-package="Default-Landscape~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/splash/Default@2x~iphone.png" path-in-package="Default@2x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/splash/Default-Portrait@2x~ipad.png" path-in-package="Default-Portrait@2x~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/splash/Default-Portrait~ipad.png" path-in-package="Default-Portrait~ipad.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_76.png" path-in-package="appicon_76.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_120.png" path-in-package="appicon_120.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/app_icons/appicon_152.png" path-in-package="appicon_152.png" />
           </files-to-package>
-          <AirSigningOptions adt-options="-useLegacyAOT no" keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/TestIad.mobileprovision" />
+          <AirSigningOptions keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/Quadrature.mobileprovision" />
         </packaging-ios>
       </configuration>
-      <configuration name="TestMobileAppEmul" target-platform="Mobile" pure-as="true" main-class="Main" output-file="TestMobileAppEmul.swf" output-folder="$MODULE_DIR$/out/production/TestMobileApp">
+      <configuration name="QuadratureAppEmul" target-platform="Mobile" pure-as="true" main-class="Main" output-file="QuadratureAppEmul.swf" output-folder="$MODULE_DIR$/out/production/QuadratureAppEmul">
         <dependencies>
           <entries>
             <entry library-name="lib" library-level="project">
@@ -41,8 +56,11 @@
             <entry library-id="1a13cc1f-2c68-41a4-b359-079cada724e6">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="b1c6d93c-cbda-40df-81d5-c07a698647c9">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
-          <sdk name="sdk (1)" />
+          <sdk name="AIRSDK_13" />
         </dependencies>
         <compiler-options>
           <map>
@@ -52,14 +70,8 @@
         </compiler-options>
         <packaging-air-desktop />
         <packaging-android package-file-name="TestMobileAppEmul" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/TestMobileAppEmul-app.xml" package-file-name="TestMobileAppEmul">
-          <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_29.png" path-in-package="Icon_29.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_57.png" path-in-package="Icon_57.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/mobile/Icon_72.png" path-in-package="Icon_72.png" />
-          </files-to-package>
-          <AirSigningOptions adt-options="-useLegacyAOT no" keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/TestIad.mobileprovision" />
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/QuadratureAppEmul-app.xml" package-file-name="TestMobileAppEmul">
+          <AirSigningOptions adt-options="-useLegacyAOT no" keystore-path="$MODULE_DIR$/mobile/iphone_dev.p12" provisioning-profile-path="$MODULE_DIR$/mobile/Quadrature.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -70,7 +82,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="sdk (1)" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="AIRSDK_13" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="module-library" exported="">
@@ -88,6 +100,26 @@
         <properties id="1a13cc1f-2c68-41a4-b359-079cada724e6" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/ane/RevMob.ane!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="c3ac758f-e686-40ad-8ea7-89ecca66cf23" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/ane/GameCenter.ane!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="b1c6d93c-cbda-40df-81d5-c07a698647c9" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/ane/GameCenter.ane!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

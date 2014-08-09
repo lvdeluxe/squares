@@ -24,24 +24,23 @@ public class GSelection extends GNode{
 	private var _checkBtitleId:String;
 
 	public function GSelection(pTitleId:String, pCheckTitleAId:String, pCheckTitleBId:String, selected:uint, sig:Signal) {
+		this.onRemovedFromStage.add(onRemove);
 		_signal = sig;
 		_titleId = pTitleId;
 		_checkAtitleId = pCheckTitleAId;
 		_checkBtitleId = pCheckTitleBId;
 		_title_txt = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-		_title_txt.textureAtlasId = "Kubus";
+		_title_txt.textureAtlasId = "Kubus36";
 		_title_txt.text = Localization.getString(pTitleId);
 		_title_txt.tracking = 0;
 		_title_txt.align = GTextureTextAlignType.TOP_LEFT;
 		addChild(_title_txt.node);
 
 		_checkBoxA = new GCheckbox(Localization.getString(pCheckTitleAId), selected == 0);
-//		_checkBoxA.transform.x = int(_checkBoxA.width * 1.5);
 		_checkBoxA.transform.y = int(_title_txt.height + (_checkBoxA.height));
 		addChild(_checkBoxA);
 
 		_checkBoxB = new GCheckbox(Localization.getString(pCheckTitleBId), selected == 1);
-//		_checkBoxB.transform.x = int(_checkBoxB.width * 1.5);
 		_checkBoxB.transform.y = int(_checkBoxA.transform.y + (_checkBoxA.height * 1.5));
 		addChild(_checkBoxB);
 
@@ -49,10 +48,10 @@ public class GSelection extends GNode{
 
 		mouseEnabled = true;
 		mouseChildren = true;
-		onMouseClick.add(onClickLang);
+		onMouseClick.add(onSelect);
 	}
 
-	private function onClickLang(sig:GNodeMouseSignal):void {
+	private function onSelect(sig:GNodeMouseSignal):void {
 		if(sig.dispatcher == _checkBoxA.dispatcher){
 			if(!_checkBoxA.isSelected()){
 				_checkBoxA.setSelected(true);
@@ -68,6 +67,11 @@ public class GSelection extends GNode{
 				SoundsManager.playClickSfx();
 			}
 		}
+	}
+
+	private function onRemove():void {
+		this.onRemovedFromStage.remove(onRemove);
+		onMouseClick.remove(onSelect);
 	}
 
 	public function setTexts():void {

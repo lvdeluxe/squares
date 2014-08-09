@@ -21,14 +21,14 @@ public class GButton extends GNode{
 	public var width:Number;
 	private var _text:GTextureText;
 
-	public function GButton(pTexture:String, pTxt:String, pTextAtlas:String) {
+	public function GButton(pTexture:String, pTxt:String, pTextAtlas:String, pTracking:int = 0) {
 
 		var gSprite:GSprite = addComponent(GSprite) as GSprite;
 		gSprite.textureId = pTexture;
 		_text = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
 		_text.textureAtlasId = pTextAtlas;
 		_text.text = pTxt;
-		_text.tracking = 0;
+		_text.tracking = pTracking;
 		_text.align = GTextureTextAlignType.MIDDLE;
 		if(_text.width % 2 != 0){
 			_text.node.transform.x += 0.5;

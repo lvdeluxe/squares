@@ -12,6 +12,7 @@ import com.genome2d.components.renderables.GSprite;
 import com.genome2d.components.renderables.GTextureText;
 import com.genome2d.components.renderables.GTextureTextAlignType;
 import com.genome2d.components.renderables.particles.GParticleSystem;
+import com.genome2d.components.renderables.particles.GSimpleParticleSystem;
 import com.genome2d.node.GNode;
 import com.genome2d.node.factory.GNodeFactory;
 import com.genome2d.signals.GNodeMouseSignal;
@@ -21,7 +22,9 @@ import deluxe.GameSignals;
 import deluxe.Localization;
 import deluxe.SoundsManager;
 import deluxe.Utils;
-import deluxe.particles.BonusParticles;
+import deluxe.particles.hd.HDBonusParticles;
+import deluxe.particles.sd.SDBonusParticles;
+import deluxe.squares.ScoreData;
 
 import flash.geom.Point;
 import flash.utils.clearTimeout;
@@ -36,18 +39,27 @@ public class GameHUD extends GNode{
 	private var _comboTf:GTextureText;
 	private var _pauseBtn:GNode;
 
-	private var _perfectTimeout:uint;
+	private var _perfectTimeout:int = -1;
+	private var _comboTimeout:int = -1;
+
+	private var _bonusParticleClass:Class;
 
 	public function GameHUD() {
 
+		if(GameData.STAGE_WIDTH == 2048)
+			_bonusParticleClass = HDBonusParticles;
+		else
+			_bonusParticleClass = SDBonusParticles;
+
 		GameSignals.COMBO_UPDATE.add(onComboUpdate);
+		GameSignals.GAME_OVER.add(onGameOver);
 		GameSignals.COMBO_BROKEN.add(onComboBroken);
 		GameSignals.PERFECT_CIRCLE.add(onPerfectCircle);
 		GameSignals.TUT_STEP_1_START.add(OnTutorialStart);
 		GameSignals.TUTORIAL_COMPLETE.add(onTutorialComplete);
 
 		_timerTf = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-		_timerTf.textureAtlasId = "KubusStroke";
+		_timerTf.textureAtlasId = "Kubus36Stroke";
 		_timerTf.text = "0:45.123";
 		_timerTf.tracking = 0;
 		_timerTf.align = GTextureTextAlignType.TOP_LEFT;
@@ -55,7 +67,7 @@ public class GameHUD extends GNode{
 		addChild(_timerTf.node);
 
 		_numSquaresTf = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-		_numSquaresTf.textureAtlasId = "KubusStroke";
+		_numSquaresTf.textureAtlasId = "Kubus36Stroke";
 		_numSquaresTf.text = "0/0";
 		_numSquaresTf.tracking = 0;
 		_numSquaresTf.align = GTextureTextAlignType.TOP_RIGHT;
@@ -63,23 +75,23 @@ public class GameHUD extends GNode{
 		addChild(_numSquaresTf.node);
 
 		_prctTf = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-		_prctTf.textureAtlasId = "KubusStroke";
+		_prctTf.textureAtlasId = "Kubus36Stroke";
 		_prctTf.text = "0%";
 		_prctTf.tracking = 0;
 		_prctTf.align = GTextureTextAlignType.TOP_LEFT;
 		addChild(_prctTf.node);
-		_prctTf.node.transform.setPosition(0, GameData.STAGE_HEIGHT - 34);
+		_prctTf.node.transform.setPosition(0, int(GameData.STAGE_HEIGHT - (34 * GameData.RESOLUTION_FACTOR)));
 
 		_comboTf = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-		_comboTf.textureAtlasId = "KubusStroke";
+		_comboTf.textureAtlasId = "Kubus36Stroke";
 		_comboTf.text = " ";
 		_comboTf.tracking = 0;
 		_comboTf.align = GTextureTextAlignType.MIDDLE;
 		addChild(_comboTf.node);
-		_comboTf.node.transform.setPosition(GameData.STAGE_WIDTH / 2, GameData.STAGE_HEIGHT - (_comboTf.height / 2));
+		_comboTf.node.transform.setPosition(int(GameData.STAGE_WIDTH / 2), int(GameData.STAGE_HEIGHT - (_comboTf.height / 2)));
 
 		_perfectTf = GNodeFactory.createNodeWithComponent(GTextureText) as GTextureText;
-		_perfectTf.textureAtlasId = "KubusStroke";
+		_perfectTf.textureAtlasId = "Kubus36Stroke";
 		_perfectTf.text = Localization.getString("PERFECT_BONUS_ID");
 		_perfectTf.tracking = 0;
 		_perfectTf.align = GTextureTextAlignType.MIDDLE;
@@ -104,6 +116,24 @@ public class GameHUD extends GNode{
 		addChild(_pauseBtn);
 	}
 
+	private function onGameOver(success:Boolean, pScoreData:ScoreData = null):void
+	{
+		if(_perfectTimeout > 0){
+			clearTimeout(_perfectTimeout);
+		}
+		if(_comboTimeout > 0){
+			clearTimeout(_comboTimeout);
+		}
+		Tweener.removeTweens(_perfectTf.node.transform);
+		//_perfectTf.node.transform.setScale(0,0);
+		_perfectTf.node.transform.scaleX = 0;
+		_perfectTf.node.transform.scaleY = 0;
+		Tweener.removeTweens(_comboTf.node.transform);
+		_comboTf.node.transform.scaleX = 0;
+		_comboTf.node.transform.scaleY = 0;
+		//_comboTf.node.transform.setScale(0,0);
+	}
+
 	private function onTutorialComplete():void {
 		_pauseBtn.setActive(true);
 	}
@@ -114,28 +144,31 @@ public class GameHUD extends GNode{
 
 	private function onPerfectCircle():void{
 		SoundsManager.playPowerUpSfx();
+		_perfectTf.text = Localization.getString("PERFECT_BONUS_ID");
 		Tweener.removeTweens(_perfectTf.node.transform);
 		_perfectTf.node.transform.setScale(0,0);
 		Tweener.addTween(_perfectTf.node.transform, {time:0.3, transition:"easeoutbounce", scaleX:1, scaleY:1});
-		var particles:BonusParticles = GNodeFactory.createNodeWithComponent(BonusParticles) as BonusParticles;
+		var particles:SDBonusParticles = GNodeFactory.createNodeWithComponent(SDBonusParticles) as SDBonusParticles;
 		particles.node.transform.setPosition(_perfectTf.node.transform.x,_perfectTf.node.transform.y);
-		if(_perfectTimeout){
+		if(_perfectTimeout > 0){
 			clearTimeout(_perfectTimeout);
 		}
 		_perfectTimeout = setTimeout(function():void{
+			_perfectTimeout = -1;
 			Tweener.addTween(_perfectTf.node.transform, {time:0.3, transition:"easeoutquad", scaleX:0, scaleY:0});
 		}, 3000);
 	}
 
 	private function onComboBroken():void{
-		Tweener.removeTweens(_comboTf.node.transform);
-		_comboTf.node.setActive(false);
+		//Tweener.removeTweens(_comboTf.node.transform);
+		//_comboTf.node.setActive(false);
 	}
+
 	private function onComboUpdate(comboNum:uint):void{
 		SoundsManager.playPowerUpSfx();
 		_comboTf.node.setActive(true);
 		_comboTf.text = Localization.CURENT_LANG == Localization.ENGLISH ? "X" + comboNum.toString() + " COMBO" : "COMBO X" + comboNum.toString();
-		var particles:BonusParticles = GNodeFactory.createNodeWithComponent(BonusParticles) as BonusParticles;
+		var particles:GSimpleParticleSystem = GNodeFactory.createNodeWithComponent(_bonusParticleClass) as _bonusParticleClass;
 		particles.node.transform.setPosition(GameData.STAGE_WIDTH / 2, GameData.STAGE_HEIGHT - (_comboTf.height / 2));
 
 		if(_comboTf.width % 2 != 0){
@@ -144,9 +177,16 @@ public class GameHUD extends GNode{
 		if(_comboTf.height % 2 != 0){
 			_comboTf.node.transform.y += 0.5;
 		}
+		if(_comboTimeout > 0){
+			clearTimeout(_comboTimeout);
+		}
 		Tweener.removeTweens(_comboTf.node.transform);
 		_comboTf.node.transform.setScale(0,0);
 		Tweener.addTween(_comboTf.node.transform, {time:0.3, transition:"easeoutbounce", scaleX:1, scaleY:1});
+		_comboTimeout = setTimeout(function():void{
+			_comboTimeout = -1;
+			Tweener.addTween(_comboTf.node.transform, {time:0.3, transition:"easeoutquad", scaleX:0, scaleY:0});
+		}, 3000);
 	}
 
 	private function onPause(sig:GNodeMouseSignal):void {
@@ -164,7 +204,6 @@ public class GameHUD extends GNode{
 	}
 
 	public function updateNumSquares(num:uint):void{
-//		_numSquaresTf.text = _destroyedSquares.toString() + "/100"
 		_numSquaresTf.text = num.toString() + "/" + Main.CURRENT_LEVEL.numSquaresToCatch.toString();
 	}
 	public function updatePercent(prct:uint):void{

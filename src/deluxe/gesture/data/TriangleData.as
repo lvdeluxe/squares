@@ -35,6 +35,10 @@ public class TriangleData implements IGeometryData{
 		setOrientation(pGeom);
 	}
 
+	public function updateTime(dt:Number):void{
+
+	}
+
 	private function setOrientation(pGeom:Vector.<String>):void{
 		if(pGeom == GestureTypes.TRIANGLE_DOWN_CLOCKWISE || pGeom == GestureTypes.TRIANGLE_DOWN_COUNTER_CLOCKWISE){
 			_orientation = DOWN;
